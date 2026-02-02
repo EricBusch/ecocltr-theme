@@ -594,5 +594,129 @@ function ecocltr_register_acf_field_groups() {
 			),
 		)
 	);
+
+	// About Page Settings.
+	acf_add_local_field_group(
+		array(
+			'key'      => 'group_about_page',
+			'title'    => __( 'About Page Content', 'ecocltr' ),
+			'fields'   => array(
+				array(
+					'key'           => 'field_about_hero_tagline',
+					'label'         => __( 'Hero Tagline', 'ecocltr' ),
+					'name'          => 'about_hero_tagline',
+					'type'          => 'text',
+					'instructions'  => __( 'Short, friendly tagline for the hero section.', 'ecocltr' ),
+					'default_value' => __( 'Bringing nature back to your landscape, one native plant at a time.', 'ecocltr' ),
+				),
+				array(
+					'key'          => 'field_about_hero_image',
+					'label'        => __( 'Hero Background Image', 'ecocltr' ),
+					'name'         => 'about_hero_image',
+					'type'         => 'image',
+					'instructions' => __( 'Background image for the hero section (optional).', 'ecocltr' ),
+					'return_format' => 'array',
+					'preview_size' => 'medium',
+					'library'      => 'all',
+				),
+				array(
+					'key'          => 'field_about_owner_photo',
+					'label'        => __( 'Owner/Team Photo', 'ecocltr' ),
+					'name'         => 'about_owner_photo',
+					'type'         => 'image',
+					'instructions' => __( 'Photo of the owner or team for the "Meet the Team" section.', 'ecocltr' ),
+					'required'     => 1,
+					'return_format' => 'array',
+					'preview_size' => 'medium',
+					'library'      => 'all',
+				),
+				array(
+					'key'          => 'field_about_owner_name',
+					'label'        => __( 'Owner Name', 'ecocltr' ),
+					'name'         => 'about_owner_name',
+					'type'         => 'text',
+					'instructions' => __( 'Name of the owner or business.', 'ecocltr' ),
+					'default_value' => __( 'EcoCultures', 'ecocltr' ),
+				),
+				array(
+					'key'          => 'field_about_owner_bio',
+					'label'        => __( 'Owner Bio', 'ecocltr' ),
+					'name'         => 'about_owner_bio',
+					'type'         => 'textarea',
+					'instructions' => __( 'First-person bio. Keep it friendly and concise.', 'ecocltr' ),
+					'rows'         => 6,
+					'new_lines'    => 'wpautop',
+				),
+				array(
+					'key'          => 'field_about_values',
+					'label'        => __( 'Our Approach / Values', 'ecocltr' ),
+					'name'         => 'about_values',
+					'type'         => 'repeater',
+					'instructions' => __( 'Add 3-4 core values or approaches.', 'ecocltr' ),
+					'min'          => 0,
+					'max'          => 6,
+					'layout'       => 'block',
+					'button_label' => __( 'Add Value', 'ecocltr' ),
+					'sub_fields'   => array(
+						array(
+							'key'   => 'field_about_value_icon',
+							'label' => __( 'Icon', 'ecocltr' ),
+							'name'  => 'icon',
+							'type'  => 'select',
+							'choices' => array(
+								'passion'    => __( 'Passion', 'ecocltr' ),
+								'nature'     => __( 'Rooted in Nature', 'ecocltr' ),
+								'owner'      => __( 'Owner Led', 'ecocltr' ),
+							),
+							'default_value' => 'passion',
+						),
+						array(
+							'key'   => 'field_about_value_title',
+							'label' => __( 'Title', 'ecocltr' ),
+							'name'  => 'title',
+							'type'  => 'text',
+							'required' => 1,
+						),
+						array(
+							'key'   => 'field_about_value_description',
+							'label' => __( 'Description', 'ecocltr' ),
+							'name'  => 'description',
+							'type'  => 'textarea',
+							'rows'  => 3,
+						),
+					),
+				),
+				array(
+					'key'          => 'field_about_why_choose',
+					'label'        => __( 'Why Choose Us', 'ecocltr' ),
+					'name'         => 'about_why_choose',
+					'type'         => 'repeater',
+					'instructions' => __( 'Add 4-6 brief points about why clients should choose you.', 'ecocltr' ),
+					'min'          => 0,
+					'max'          => 8,
+					'layout'       => 'table',
+					'button_label' => __( 'Add Point', 'ecocltr' ),
+					'sub_fields'   => array(
+						array(
+							'key'   => 'field_about_why_point',
+							'label' => __( 'Point', 'ecocltr' ),
+							'name'  => 'point',
+							'type'  => 'text',
+							'required' => 1,
+						),
+					),
+				),
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'page_template',
+						'operator' => '==',
+						'value'    => 'page-about.php',
+					),
+				),
+			),
+		)
+	);
 }
 add_action( 'acf/init', 'ecocltr_register_acf_field_groups' );
