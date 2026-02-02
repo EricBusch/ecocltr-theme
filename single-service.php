@@ -120,7 +120,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 													</a>
 												<?php endif; ?>
 												<div>
-													<a href="<?php echo esc_url( get_permalink( $project->ID ) ); ?>" class="font-medium text-dark hover:text-burgundy transition-colors !no-underline">
+													<a href="<?php echo esc_url( get_permalink( $project->ID ) ); ?>" class="font-medium text-dark hover:text-burgundy transition-colors leading-tight !no-underline inline-block">
 														<?php echo esc_html( get_the_title( $project->ID ) ); ?>
 													</a>
 													<?php

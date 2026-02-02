@@ -18,35 +18,8 @@ $random_testimonial = ecocltr_get_random_testimonial();
 <div id="primary" class="content-area">
 	<!-- Hero Section -->
 	<header class="relative bg-olive text-light py-16 md:py-20 overflow-hidden">
-		<!-- Organic Background Pattern -->
-		<div class="absolute inset-0 opacity-[0.07]">
-			<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<pattern id="nature-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-						<!-- Leaf shapes -->
-						<path d="M30 40 Q35 30, 40 40 Q35 50, 30 40" fill="currentColor"/>
-						<path d="M35 43 Q40 38, 45 43" stroke="currentColor" stroke-width="0.5" fill="none"/>
-
-						<!-- Branch-like curves -->
-						<path d="M70 20 Q75 30, 80 40 Q85 50, 90 60" stroke="currentColor" stroke-width="0.8" fill="none"/>
-						<path d="M75 28 L78 25 M82 38 L85 35 M87 48 L90 45" stroke="currentColor" stroke-width="0.5"/>
-
-						<!-- Seed/berry dots -->
-						<circle cx="20" cy="80" r="1.5" fill="currentColor"/>
-						<circle cx="25" cy="82" r="1" fill="currentColor"/>
-						<circle cx="22" cy="85" r="1.2" fill="currentColor"/>
-
-						<!-- Organic flowing line -->
-						<path d="M10 10 Q20 15, 30 10 Q40 5, 50 10" stroke="currentColor" stroke-width="0.6" fill="none"/>
-
-						<!-- Small leaf cluster -->
-						<path d="M100 90 Q102 88, 104 90 Q102 92, 100 90" fill="currentColor"/>
-						<path d="M105 92 Q107 90, 109 92 Q107 94, 105 92" fill="currentColor"/>
-					</pattern>
-				</defs>
-				<rect width="100%" height="100%" fill="url(#nature-pattern)"/>
-			</svg>
-		</div>
+		<!-- Subtle Gradient Background -->
+		<div class="absolute inset-0 bg-gradient-to-br from-olive via-olive to-olive-900 opacity-60"></div>
 
 		<!-- Decorative Organic Shapes -->
 		<div class="absolute top-10 right-10 w-32 h-32 bg-sage/20 rounded-full blur-3xl"></div>

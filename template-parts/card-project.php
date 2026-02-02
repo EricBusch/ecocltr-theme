@@ -11,7 +11,7 @@ $project_location = ecocltr_get_field( 'project_location', $project_id );
 $project_year     = ecocltr_get_field( 'project_year', $project_id );
 ?>
 
-<article id="project-<?php the_ID(); ?>" <?php post_class( 'group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden' ); ?>>
+<article id="project-<?php the_ID(); ?>" <?php post_class( 'group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col h-full' ); ?>>
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php the_permalink(); ?>" class="block aspect-[4/3] overflow-hidden">
 			<?php
@@ -26,7 +26,7 @@ $project_year     = ecocltr_get_field( 'project_year', $project_id );
 		</a>
 	<?php endif; ?>
 
-	<div class="p-6">
+	<div class="p-6 flex flex-col flex-grow">
 		<h3 class="text-xl font-semibold text-dark mb-2">
 			<a href="<?php the_permalink(); ?>" class="hover:text-burgundy transition-colors !no-underline">
 				<?php the_title(); ?>
@@ -56,7 +56,7 @@ $project_year     = ecocltr_get_field( 'project_year', $project_id );
 			</div>
 		<?php endif; ?>
 
-		<a href="<?php the_permalink(); ?>" class="inline-flex items-center text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors !no-underline">
+		<a href="<?php the_permalink(); ?>" class="inline-flex items-center text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors !no-underline mt-auto">
 			<?php esc_html_e( 'View Project', 'ecocltr' ); ?>
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
