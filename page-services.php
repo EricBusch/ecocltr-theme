@@ -38,8 +38,14 @@ $service_categories = ecocltr_get_service_categories();
 				<div class="space-y-12 md:space-y-16">
 					<?php
 					foreach ( $service_categories as $index => $category ) :
-						$services          = ecocltr_get_services_by_category( $category->term_id );
-						$thumbnail_url     = ecocltr_get_category_thumbnail( $category->term_id );
+						$services       = ecocltr_get_services_by_category( $category->term_id );
+						// Try to get image from taxonomy term first, fallback to first service's image
+						$category_image = get_field( 'featured_image', 'term_' . $category->term_id );
+						if ( $category_image ) {
+							$thumbnail_url = is_array( $category_image ) ? $category_image['url'] : $category_image;
+						} else {
+							$thumbnail_url = ecocltr_get_category_thumbnail( $category->term_id );
+						}
 						$badge_bg_class    = 'bg-sage/10';
 						$badge_text_class  = 'text-olive';
 						$check_bg_class    = 'bg-sage';

@@ -34,7 +34,7 @@ $term = get_queried_object();
 		<div class="container mx-auto max-w-7xl">
 			<?php if ( have_posts() ) : ?>
 				<!-- Services Grid -->
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 					<?php
 					while ( have_posts() ) :
 						the_post();
@@ -42,49 +42,46 @@ $term = get_queried_object();
 						$excerpt       = $service_intro ? $service_intro : get_the_excerpt();
 						?>
 						<!-- Service Card -->
-						<article class="flex flex-col bg-sage/10 p-6 shadow-sm">
-							<!-- Service Image -->
+						<article class="group relative overflow-hidden rounded-2xl aspect-[4/5] shadow-lg hover:shadow-xl transition-shadow">
+							<!-- Background Image -->
 							<?php if ( has_post_thumbnail() ) : ?>
-								<a href="<?php the_permalink(); ?>" class="block mb-6">
-									<div class="aspect-[21/9]  overflow-hidden shadow-md">
-										<?php
-										the_post_thumbnail(
-											'small',
-											array(
-												'class' => 'w-full h-full object-cover',
-												'alt'   => esc_attr( get_the_title() ),
-											)
-										);
-										?>
-									</div>
-								</a>
-							<?php else : ?>
-								<div class="w-16 h-16 rounded-2xl bg-sage/20 mb-6 flex items-center justify-center">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-olive">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-										<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-									</svg>
+								<div class="absolute inset-0">
+									<?php
+									the_post_thumbnail(
+										'large',
+										array(
+											'class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500',
+											'alt'   => esc_attr( get_the_title() ),
+										)
+									);
+									?>
 								</div>
+								<!-- Gradient Overlay -->
+								<div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+							<?php else : ?>
+								<!-- Fallback Background -->
+								<div class="absolute inset-0 bg-gradient-to-br from-olive to-sage"></div>
+								<div class="absolute inset-0 bg-dark/40"></div>
 							<?php endif; ?>
 
-							<!-- Service Content -->
-							<h3 class="text-pretty text-lg font-bold text-dark mb-3">
-								<a href="<?php the_permalink(); ?>" class="hover:text-olive transition-colors !no-underline">
+							<!-- Content Overlay -->
+							<a href="<?php the_permalink(); ?>" class="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-white !no-underline">
+								<h3 class="text-pretty text-xl md:text-2xl font-bold mb-3 group-hover:text-sage transition-colors">
 									<?php the_title(); ?>
-								</a>
-							</h3>
+								</h3>
 
-							<?php if ( $excerpt ) : ?>
-								<p class="text-balance text-dark/70 leading-relaxed mb-6 flex-1">
-									<?php echo esc_html( wp_trim_words( $excerpt, 25 ) ); ?>
-								</p>
-							<?php endif; ?>
+								<?php if ( $excerpt ) : ?>
+									<p class="text-balance text-white/90 leading-relaxed mb-4 line-clamp-3">
+										<?php echo esc_html( wp_trim_words( $excerpt, 20 ) ); ?>
+									</p>
+								<?php endif; ?>
 
-							<a href="<?php the_permalink(); ?>" class="inline-flex items-center gap-2 text-olive hover:text-olive/80 font-semibold text-sm transition-colors !no-underline group">
-								<?php esc_html_e( 'Learn more', 'ecocltr' ); ?>
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-								</svg>
+								<span class="inline-flex items-center gap-2 text-white font-semibold text-sm group-hover:gap-3 transition-all">
+									<?php esc_html_e( 'Learn more', 'ecocltr' ); ?>
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+									</svg>
+								</span>
 							</a>
 						</article>
 					<?php endwhile; ?>
