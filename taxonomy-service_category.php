@@ -65,7 +65,7 @@ $term = get_queried_object();
 							<?php endif; ?>
 
 							<!-- Content Overlay -->
-							<a href="<?php the_permalink(); ?>" class="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-white !no-underline">
+							<a href="<?php the_permalink(); ?>" class="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-white">
 								<h3 class="text-pretty text-xl md:text-2xl font-bold mb-3 group-hover:text-sage transition-colors">
 									<?php the_title(); ?>
 								</h3>
@@ -150,7 +150,7 @@ $term = get_queried_object();
 			<p class="text-lg text-dark/70 mb-8 max-w-2xl mx-auto">
 				<?php esc_html_e( 'Contact us today to discuss how we can help transform your outdoor space.', 'ecocltr' ); ?>
 			</p>
-			<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-burgundy hover:bg-burgundy-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors !no-underline">
+			<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-burgundy hover:bg-burgundy-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors">
 				<?php esc_html_e( 'Get in Touch', 'ecocltr' ); ?>
 			</a>
 		</div>

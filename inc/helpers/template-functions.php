@@ -156,7 +156,8 @@ function ecocltr_get_recent_projects( $count = 4 ) {
 			'post_type'      => 'project',
 			'posts_per_page' => $count,
 			'post_status'    => 'publish',
-			'orderby'        => 'date',
+			'meta_key'       => 'project_year',
+			'orderby'        => 'meta_value',
 			'order'          => 'DESC',
 		)
 	);

@@ -54,7 +54,7 @@ $map_image     = ecocltr_get_field( 'contact_map_image' );
 									</div>
 									<div>
 										<h3 class="font-semibold text-dark mb-1"><?php esc_html_e( 'Phone', 'ecocltr' ); ?></h3>
-										<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $business_phone ) ); ?>" class="text-burgundy hover:text-burgundy-800 !no-underline">
+										<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $business_phone ) ); ?>" class="text-burgundy hover:text-burgundy-800">
 											<?php echo esc_html( $business_phone ); ?>
 										</a>
 									</div>
@@ -71,7 +71,7 @@ $map_image     = ecocltr_get_field( 'contact_map_image' );
 									<div>
 										<h3 class="font-semibold text-dark mb-1"><?php esc_html_e( 'Email', 'ecocltr' ); ?></h3>
 										<span class="text-burgundy hover:text-burgundy-800">
-											<?php ecocltr_display_obfuscated_email( $business_email, '', true, '', '!no-underline' ); ?>
+											<?php ecocltr_display_obfuscated_email( $business_email, '', true, '', '' ); ?>
 										</span>
 									</div>
 								</div>

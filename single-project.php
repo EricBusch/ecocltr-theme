@@ -25,7 +25,10 @@ $related_services = ecocltr_get_related_services( $project_id );
 		<header class="bg-olive text-light py-16 md:py-24">
 			<div class="container mx-auto">
 				<p class="text-sage text-sm uppercase tracking-wider mb-4">
-					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="hover:text-white transition-colors !no-underline">
+					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-3 h-3 text-white" fill="currentColor">
+							<path d="M139.3 539.3L347.3 331.3C353.5 325.1 353.5 314.9 347.3 308.7L139.3 100.7C133.1 94.5 122.9 94.5 116.7 100.7C110.5 106.9 110.5 117.1 116.7 123.3L313.4 320L116.7 516.7C110.5 522.9 110.5 533.1 116.7 539.3C122.9 545.5 133.1 545.5 139.3 539.3zM331.3 539.3L539.3 331.3C545.5 325.1 545.5 314.9 539.3 308.7L331.3 100.7C325.1 94.5 314.9 94.5 308.7 100.7C302.5 106.9 302.5 117.1 308.7 123.3L505.4 320L308.7 516.7C302.5 522.9 302.5 533.1 308.7 539.3C314.9 545.5 325.1 545.5 331.3 539.3z"/>
+						</svg>
 						<?php esc_html_e( 'Projects', 'ecocltr' ); ?>
 					</a>
 				</p>
@@ -51,7 +54,7 @@ $related_services = ecocltr_get_related_services( $project_id );
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
 									<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
 								</svg>
-								<?php echo esc_html( $project_year ); ?>
+								<?php echo esc_html( gmdate( 'Y', strtotime( $project_year ) ) ); ?>
 							</span>
 						<?php endif; ?>
 					</div>
@@ -62,37 +65,58 @@ $related_services = ecocltr_get_related_services( $project_id );
 		<article id="project-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="py-16 md:py-24">
 				<div class="container mx-auto">
-					<!-- Featured Image -->
-					<?php if ( has_post_thumbnail() ) : ?>
-						<div class="mb-12 rounded-lg overflow-hidden">
-							<?php
-							the_post_thumbnail(
-								'large',
-								array(
-									'class' => 'w-full h-auto',
-									'alt'   => esc_attr( get_the_title() ),
-								)
-							);
-							?>
-						</div>
-					<?php endif; ?>
-
 					<div class="grid lg:grid-cols-3 gap-12">
 						<!-- Main Content -->
 						<div class="lg:col-span-2">
+							<?php if ( has_post_thumbnail() ) : ?>
+								<div class="mb-10 rounded-lg overflow-hidden">
+									<?php
+									the_post_thumbnail(
+										'large',
+										array(
+											'class' => 'w-full h-auto',
+											'alt'   => esc_attr( get_the_title() ),
+										)
+									);
+									?>
+								</div>
+							<?php endif; ?>
+
 							<div class="prose prose-lg max-w-none">
 								<?php the_content(); ?>
 							</div>
 
 							<!-- Project Gallery -->
-							<?php if ( $project_gallery && is_array( $project_gallery ) ) : ?>
+							<?php
+							// Add featured image to gallery if it exists.
+							$gallery_images = array();
+							if ( has_post_thumbnail() ) {
+								$featured_image_id = get_post_thumbnail_id();
+								$featured_image    = array(
+									'ID'    => $featured_image_id,
+									'url'   => wp_get_attachment_image_url( $featured_image_id, 'full' ),
+									'sizes' => array(
+										'medium_large' => wp_get_attachment_image_url( $featured_image_id, 'medium_large' ),
+									),
+									'alt'   => get_post_meta( $featured_image_id, '_wp_attachment_image_alt', true ),
+								);
+								$gallery_images[] = $featured_image;
+							}
+
+							// Add gallery images.
+							if ( $project_gallery && is_array( $project_gallery ) ) {
+								$gallery_images = array_merge( $gallery_images, $project_gallery );
+							}
+
+							if ( ! empty( $gallery_images ) ) :
+								?>
 								<div class="mt-12">
 									<h2 class="text-2xl font-bold text-dark mb-6">
 										<?php esc_html_e( 'Project Gallery', 'ecocltr' ); ?>
 									</h2>
 
 									<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-										<?php foreach ( $project_gallery as $image ) : ?>
+										<?php foreach ( $gallery_images as $image ) : ?>
 											<a
 												href="<?php echo esc_url( $image['url'] ); ?>"
 												data-fslightbox="project-gallery"
@@ -116,13 +140,13 @@ $related_services = ecocltr_get_related_services( $project_id );
 							<?php if ( $related_services ) : ?>
 								<div class="bg-sage/20 rounded-lg p-6 mb-8">
 									<h3 class="text-xl font-semibold text-dark mb-4">
-										<?php esc_html_e( 'Services Used', 'ecocltr' ); ?>
+										<?php esc_html_e( 'Services used', 'ecocltr' ); ?>
 									</h3>
 
 									<ul class="space-y-3">
 										<?php foreach ( $related_services as $service ) : ?>
 											<li>
-												<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="flex items-center text-dark hover:text-burgundy transition-colors !no-underline">
+												<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="flex items-center text-dark hover:text-burgundy transition-colors">
 													<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-olive mr-3 flex-shrink-0">
 														<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
 													</svg>
@@ -132,7 +156,7 @@ $related_services = ecocltr_get_related_services( $project_id );
 										<?php endforeach; ?>
 									</ul>
 
-									<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors !no-underline">
+									<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors">
 										<?php esc_html_e( 'View All Services', 'ecocltr' ); ?>
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
 											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -144,12 +168,12 @@ $related_services = ecocltr_get_related_services( $project_id );
 							<!-- Contact CTA -->
 							<div class="bg-burgundy text-white rounded-lg p-6">
 								<h3 class="text-xl font-semibold mb-4">
-									<?php esc_html_e( 'Like What You See?', 'ecocltr' ); ?>
+									<?php esc_html_e( 'Like what you see?', 'ecocltr' ); ?>
 								</h3>
 								<p class="text-white/80 mb-6">
 									<?php esc_html_e( 'Let\'s discuss how we can create something similar for your space.', 'ecocltr' ); ?>
 								</p>
-								<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-white text-burgundy hover:bg-light font-semibold px-6 py-3 rounded-lg transition-colors !no-underline">
+								<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-white text-burgundy hover:bg-light font-semibold px-6 py-3 rounded-lg transition-colors">
 									<?php esc_html_e( 'Contact Us', 'ecocltr' ); ?>
 								</a>
 							</div>
@@ -192,7 +216,7 @@ $related_services = ecocltr_get_related_services( $project_id );
 				</div>
 
 				<div class="text-center mt-12">
-					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-block border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors !no-underline">
+					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-block border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors">
 						<?php esc_html_e( 'View All Projects', 'ecocltr' ); ?>
 					</a>
 				</div>

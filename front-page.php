@@ -63,10 +63,10 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 			<?php endif; ?>
 
 			<div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-block bg-white/10 hover:bg-white/20 text-white border-2 border-white/50 hover:border-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:scale-105 !no-underline backdrop-blur-sm">
+				<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-block bg-white/10 hover:bg-white/20 text-white border-2 border-white/50 hover:border-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm">
 					<?php esc_html_e( 'Our Services', 'ecocltr' ); ?>
 				</a>
-				<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-burgundy hover:bg-burgundy-800 text-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg !no-underline">
+				<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-burgundy hover:bg-burgundy-800 text-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg">
 					<?php echo esc_html( $cta_button_text ); ?>
 				</a>
 			</div>
@@ -116,7 +116,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 						<div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4 md:p-6">
 							<div class="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center <?php echo $is_even ? '' : 'lg:grid-flow-dense'; ?>">
 								<!-- Image -->
-								<a href="<?php echo esc_url( $category_link ); ?>" class="group block !no-underline <?php echo $is_even ? '' : 'lg:col-start-2'; ?>">
+								<a href="<?php echo esc_url( $category_link ); ?>" class="group block <?php echo $is_even ? '' : 'lg:col-start-2'; ?>">
 									<div class="relative overflow-hidden rounded-xl shadow-md">
 										<?php if ( $category_image ) : ?>
 											<img
@@ -143,7 +143,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 									</span>
 
 									<h3 class="text-xl md:text-2xl font-semibold text-dark mb-3">
-										<a href="<?php echo esc_url( $category_link ); ?>" class="!no-underline hover:text-burgundy transition-colors">
+										<a href="<?php echo esc_url( $category_link ); ?>" class="hover:text-burgundy transition-colors">
 											<?php echo esc_html( $category->name ); ?>
 										</a>
 									</h3>
@@ -171,8 +171,10 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 									);
 
 									if ( $category_services ) :
+										$service_count = count( $category_services );
+										$list_classes  = $service_count > 3 ? 'grid grid-cols-2 gap-x-4 gap-y-1.5 mb-6' : 'space-y-1.5 mb-6';
 										?>
-										<ul class="space-y-1.5 mb-6">
+										<ul class="<?php echo esc_attr( $list_classes ); ?>">
 											<?php foreach ( $category_services as $service ) : ?>
 												<li class="flex items-center text-dark/60">
 													<svg class="w-4 h-4 mr-2 text-sage-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,8 +186,8 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 										</ul>
 									<?php endif; ?>
 
-									<a href="<?php echo esc_url( $category_link ); ?>" class="group/link inline-flex items-center text-burgundy font-medium !no-underline">
-										<span class="border-b border-burgundy/30 group-hover/link:border-burgundy transition-colors">
+									<a href="<?php echo esc_url( $category_link ); ?>" class="group/link inline-flex items-center text-burgundy font-medium">
+										<span class="transition-colors">
 											<?php esc_html_e( 'Explore services', 'ecocltr' ); ?>
 										</span>
 										<svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -242,7 +244,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 				</div>
 
 				<div class="text-center mt-12">
-					<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-block border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors !no-underline">
+					<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-block border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors">
 						<?php esc_html_e( 'View All Services', 'ecocltr' ); ?>
 					</a>
 				</div>
@@ -270,7 +272,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 				</div>
 
 				<div class="text-center mt-12">
-					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-block border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors !no-underline">
+					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-block border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors">
 						<?php esc_html_e( 'View All Projects', 'ecocltr' ); ?>
 					</a>
 				</div>

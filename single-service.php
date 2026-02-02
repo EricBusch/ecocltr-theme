@@ -33,7 +33,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 					<div class="lg:col-span-2">
 						<?php if ( $service_terms && ! is_wp_error( $service_terms ) ) : ?>
 							<p class="text-sage text-sm uppercase tracking-wider mb-4">
-								<a href="<?php echo esc_url( get_term_link( $service_terms[0] ) ); ?>" class="hover:text-white transition-colors !no-underline">
+								<a href="<?php echo esc_url( get_term_link( $service_terms[0] ) ); ?>" class="hover:text-white transition-colors">
 									<?php echo esc_html( $service_terms[0]->name ); ?>
 								</a>
 							</p>
@@ -59,7 +59,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 							<p class="text-sage/90 mb-6 text-sm leading-relaxed text-pretty">
 								<?php esc_html_e( 'Get in touch to discuss how we can help with your project.', 'ecocltr' ); ?>
 							</p>
-							<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="block text-center bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-colors !no-underline">
+							<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="block text-center bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-colors">
 								<?php esc_html_e( 'Contact Us', 'ecocltr' ); ?>
 							</a>
 						</div>
@@ -120,7 +120,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 													</a>
 												<?php endif; ?>
 												<div>
-													<a href="<?php echo esc_url( get_permalink( $project->ID ) ); ?>" class="font-medium text-dark hover:text-burgundy transition-colors leading-tight !no-underline inline-block">
+													<a href="<?php echo esc_url( get_permalink( $project->ID ) ); ?>" class="font-medium text-dark hover:text-burgundy transition-colors leading-tight inline-block">
 														<?php echo esc_html( get_the_title( $project->ID ) ); ?>
 													</a>
 													<?php
@@ -136,7 +136,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 										<?php endforeach; ?>
 									</ul>
 
-									<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors !no-underline">
+									<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors">
 										<?php esc_html_e( 'View All Projects', 'ecocltr' ); ?>
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
 											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -171,7 +171,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 															<li>
 																<a
 																	href="<?php echo esc_url( get_permalink( $cat_service->ID ) ); ?>"
-																	class="block text-sm text-dark/70 hover:text-burgundy transition-colors !no-underline pl-3 border-l-2 <?php echo $is_current ? 'border-burgundy text-burgundy font-medium' : 'border-transparent'; ?>"
+																	class="block text-sm text-dark/70 hover:text-burgundy transition-colors pl-3 border-l-2 <?php echo $is_current ? 'border-burgundy text-burgundy font-medium' : 'border-transparent'; ?>"
 																>
 																	<?php echo esc_html( get_the_title( $cat_service->ID ) ); ?>
 																</a>
@@ -183,7 +183,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 										<?php endforeach; ?>
 									</nav>
 
-									<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors !no-underline">
+									<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors">
 										<?php esc_html_e( 'View All Services', 'ecocltr' ); ?>
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
 											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -209,7 +209,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 						<p class="text-sage text-xs uppercase tracking-widest font-semibold mb-3">
 							<?php esc_html_e( 'Beautiful Pairings', 'ecocltr' ); ?>
 						</p>
-						<h2 class="text-pretty text-3xl md:text-4xl font-bold text-dark mb-4">
+						<h2 class="text-pretty text-2xl md:text-3xl font-bold text-dark mb-4">
 							<?php esc_html_e( 'Companion Landscaping', 'ecocltr' ); ?>
 						</h2>
 						<p class="text-balance text-lg text-dark/70 leading-relaxed">
@@ -231,7 +231,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 							$excerpt       = $service_intro ? $service_intro : get_the_excerpt( $service->ID );
 							?>
 							<article class="group bg-white border border-dark/10 rounded-xl overflow-hidden hover:shadow-md transition-all">
-								<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="flex items-center gap-4 p-4 !no-underline">
+								<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="flex items-center gap-4 p-4">
 									<!-- Service Image -->
 									<?php if ( has_post_thumbnail( $service->ID ) ) : ?>
 										<div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">

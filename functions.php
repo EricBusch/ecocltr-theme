@@ -127,3 +127,37 @@ function ecocltr_flush_rewrite_rules() {
 	flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'ecocltr_flush_rewrite_rules' );
+
+/**
+ * Disable WordPress global styles inline CSS.
+ *
+ * This removes the inline CSS that WordPress injects with link underline styles.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function ecocltr_disable_global_styles() {
+	wp_dequeue_style( 'global-styles' );
+	wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library-theme' );
+}
+add_action( 'wp_enqueue_scripts', 'ecocltr_disable_global_styles', 100 );
+
+/**
+ * Modify project archive query to order by date completed.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_Query $query The WordPress query object.
+ * @return void
+ */
+function ecocltr_modify_project_archive_query( $query ) {
+	// Only modify the main query on project archives.
+	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'project' ) ) {
+		$query->set( 'meta_key', 'project_year' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'order', 'DESC' );
+	}
+}
+add_action( 'pre_get_posts', 'ecocltr_modify_project_archive_query' );

@@ -38,13 +38,13 @@ $random_testimonial = ecocltr_get_random_testimonial();
 					</p>
 
 					<div class="flex flex-wrap gap-4">
-						<a href="#projects-grid" class="inline-flex items-center gap-2 bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-all duration-300 !no-underline">
+						<a href="#projects-grid" class="inline-flex items-center gap-2 bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'View Projects', 'ecocltr' ); ?>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
 								<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
 							</svg>
 						</a>
-						<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/50 hover:border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg transition-all duration-300 !no-underline">
+						<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/50 hover:border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'Get Started', 'ecocltr' ); ?>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -135,10 +135,10 @@ $random_testimonial = ecocltr_get_random_testimonial();
 			<h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">
 				<?php esc_html_e( 'Ready to Start Your Project?', 'ecocltr' ); ?>
 			</h2>
-			<p class="text-lg text-dark/70 mb-8 max-w-2xl mx-auto">
+			<p class="text-lg text-dark/70 mb-8 max-w-2xl mx-auto text-balance">
 				<?php esc_html_e( 'Let us help you create a beautiful, sustainable outdoor space. Contact us today to discuss your vision.', 'ecocltr' ); ?>
 			</p>
-			<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-burgundy hover:bg-burgundy-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors !no-underline">
+			<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-burgundy hover:bg-burgundy-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors">
 				<?php esc_html_e( 'Get in Touch', 'ecocltr' ); ?>
 			</a>
 		</div>

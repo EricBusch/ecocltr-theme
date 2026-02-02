@@ -41,13 +41,13 @@ $random_testimonial = ecocltr_get_random_testimonial();
 					</p>
 
 					<div class="flex flex-wrap gap-4">
-						<a href="#service-categories" class="inline-flex items-center gap-2 bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-all duration-300 !no-underline">
+						<a href="#service-categories" class="inline-flex items-center gap-2 bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'Browse Categories', 'ecocltr' ); ?>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
 								<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
 							</svg>
 						</a>
-						<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/50 hover:border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg transition-all duration-300 !no-underline">
+						<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/50 hover:border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'Get Started', 'ecocltr' ); ?>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -150,7 +150,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 
 										<!-- Title -->
 										<h2 class="text-pretty text-2xl md:text-3xl font-bold mb-3">
-											<a href="<?php echo esc_url( get_term_link( $category ) ); ?>" class="text-dark hover:text-olive transition-colors !no-underline">
+											<a href="<?php echo esc_url( get_term_link( $category ) ); ?>" class="text-dark hover:text-olive transition-colors">
 												<?php echo esc_html( $category->name ); ?>
 											</a>
 										</h2>
@@ -181,7 +181,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 														</div>
 														<!-- Service Name -->
 														<div class="flex-1 min-w-0">
-															<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="text-dark hover:text-olive font-medium text-base transition-colors !no-underline group-hover:underline">
+															<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="text-dark hover:text-olive font-medium text-base transition-colors group-hover:underline">
 																<?php echo esc_html( $service->post_title ); ?>
 															</a>
 														</div>
@@ -193,7 +193,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 											<div class="mt-6 pt-6 border-t border-dark/10">
 												<a
 													href="<?php echo esc_url( get_term_link( $category ) ); ?>"
-													class="inline-flex items-center gap-2 <?php echo esc_attr( $link_class ); ?> font-semibold text-sm transition-colors !no-underline group"
+													class="inline-flex items-center gap-2 <?php echo esc_attr( $link_class ); ?> font-semibold text-sm transition-colors group"
 												>
 													<?php esc_html_e( 'View all services', 'ecocltr' ); ?>
 													<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">

@@ -49,4 +49,9 @@
     font-weight: 700;
     line-height: 1.2;
   }
+
+  /* Remove default underlines from all links - override WordPress global styles */
+  a {
+    text-decoration: none !important;
+  }
 }

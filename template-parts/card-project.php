@@ -27,8 +27,8 @@ $project_year     = ecocltr_get_field( 'project_year', $project_id );
 	<?php endif; ?>
 
 	<div class="p-6 flex flex-col flex-grow">
-		<h3 class="text-xl font-semibold text-dark mb-2">
-			<a href="<?php the_permalink(); ?>" class="hover:text-burgundy transition-colors !no-underline">
+		<h3 class="text-lg font-semibold text-dark mb-1.5">
+			<a href="<?php the_permalink(); ?>" class="hover:text-burgundy transition-colors leading-tight inline-block">
 				<?php the_title(); ?>
 			</a>
 		</h3>
@@ -50,13 +50,13 @@ $project_year     = ecocltr_get_field( 'project_year', $project_id );
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
 						</svg>
-						<?php echo esc_html( $project_year ); ?>
+						<?php echo esc_html( gmdate( 'Y', strtotime( $project_year ) ) ); ?>
 					</span>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 
-		<a href="<?php the_permalink(); ?>" class="inline-flex items-center text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors !no-underline mt-auto">
+		<a href="<?php the_permalink(); ?>" class="inline-flex items-center text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors mt-auto">
 			<?php esc_html_e( 'View Project', 'ecocltr' ); ?>
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
