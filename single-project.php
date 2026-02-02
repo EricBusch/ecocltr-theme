@@ -166,14 +166,14 @@ $related_services = ecocltr_get_related_services( $project_id );
 							<?php endif; ?>
 
 							<!-- Contact CTA -->
-							<div class="bg-burgundy text-white rounded-lg p-6">
+							<div class="bg-olive text-white rounded-lg p-6">
 								<h3 class="text-xl font-semibold mb-4">
 									<?php esc_html_e( 'Like what you see?', 'ecocltr' ); ?>
 								</h3>
 								<p class="text-white/80 mb-6">
 									<?php esc_html_e( 'Let\'s discuss how we can create something similar for your space.', 'ecocltr' ); ?>
 								</p>
-								<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-white text-burgundy hover:bg-light font-semibold px-6 py-3 rounded-lg transition-colors">
+								<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-white text-olive hover:bg-light font-semibold px-6 py-3 rounded-lg transition-colors">
 									<?php esc_html_e( 'Contact Us', 'ecocltr' ); ?>
 								</a>
 							</div>

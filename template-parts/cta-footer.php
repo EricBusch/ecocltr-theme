@@ -13,13 +13,13 @@ $cta_button_text = ecocltr_get_field( 'footer_cta_button_text', 'option', __( 'G
 $business_phone  = ecocltr_get_business_info( 'business_phone' );
 ?>
 
-<section class="py-20 md:py-28 bg-olive text-white">
+<section class="py-20 md:py-28 bg-sage/20">
 	<div class="container mx-auto text-center">
-		<h2 class="text-pretty text-3xl md:text-4xl font-bold mb-4">
+		<h2 class="text-pretty text-3xl md:text-4xl font-bold text-dark mb-4">
 			<?php echo esc_html( $cta_heading ); ?>
 		</h2>
 
-		<p class="text-balance text-lg text-sage-200 max-w-2xl mx-auto mb-8">
+		<p class="text-balance text-lg text-dark/70 max-w-2xl mx-auto mb-8">
 			<?php echo esc_html( $cta_description ); ?>
 		</p>
 
@@ -29,8 +29,8 @@ $business_phone  = ecocltr_get_business_info( 'business_phone' );
 			</a>
 
 			<?php if ( $business_phone ) : ?>
-				<span class="text-sage-200 hidden sm:inline">or</span>
-				<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $business_phone ) ); ?>" class="inline-flex items-center gap-2 text-white font-semibold text-lg hover:text-sage-200 transition-colors">
+				<span class="text-dark/60 hidden sm:inline">or</span>
+				<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $business_phone ) ); ?>" class="inline-flex items-center gap-2 text-dark font-semibold text-lg hover:text-burgundy transition-colors">
 					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
 					</svg>

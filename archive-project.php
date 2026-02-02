@@ -129,20 +129,8 @@ $random_testimonial = ecocltr_get_random_testimonial();
 		</div>
 	</section>
 
-	<!-- CTA Section -->
-	<section class="py-16 md:py-24 bg-sage/20">
-		<div class="container mx-auto text-center">
-			<h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">
-				<?php esc_html_e( 'Ready to Start Your Project?', 'ecocltr' ); ?>
-			</h2>
-			<p class="text-lg text-dark/70 mb-8 max-w-2xl mx-auto text-balance">
-				<?php esc_html_e( 'Let us help you create a beautiful, sustainable outdoor space. Contact us today to discuss your vision.', 'ecocltr' ); ?>
-			</p>
-			<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-burgundy hover:bg-burgundy-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors">
-				<?php esc_html_e( 'Get in Touch', 'ecocltr' ); ?>
-			</a>
-		</div>
-	</section>
+	<!-- Call to Action Footer -->
+	<?php get_template_part( 'template-parts/cta', 'footer' ); ?>
 </div>
 
 <?php

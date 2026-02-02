@@ -75,20 +75,8 @@ get_header();
 		</section>
 	<?php endif; ?>
 
-	<!-- CTA Section -->
-	<section class="py-16 md:py-24 bg-burgundy text-white">
-		<div class="container mx-auto text-center">
-			<h2 class="text-3xl md:text-4xl font-bold mb-6">
-				<?php esc_html_e( 'Let\'s Work Together', 'ecocltr' ); ?>
-			</h2>
-			<p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-				<?php esc_html_e( 'Ready to create a beautiful, natural landscape? We\'d love to hear from you.', 'ecocltr' ); ?>
-			</p>
-			<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block bg-white text-burgundy hover:bg-light font-semibold px-8 py-4 rounded-lg transition-colors">
-				<?php esc_html_e( 'Get in Touch', 'ecocltr' ); ?>
-			</a>
-		</div>
-	</section>
+	<!-- Call to Action Footer -->
+	<?php get_template_part( 'template-parts/cta', 'footer' ); ?>
 </div>
 
 <?php

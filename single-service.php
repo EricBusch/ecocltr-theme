@@ -33,7 +33,10 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 					<div class="lg:col-span-2">
 						<?php if ( $service_terms && ! is_wp_error( $service_terms ) ) : ?>
 							<p class="text-sage text-sm uppercase tracking-wider mb-4">
-								<a href="<?php echo esc_url( get_term_link( $service_terms[0] ) ); ?>" class="hover:text-white transition-colors">
+								<a href="<?php echo esc_url( get_term_link( $service_terms[0] ) ); ?>" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-3 h-3 text-white" fill="currentColor">
+										<path d="M139.3 539.3L347.3 331.3C353.5 325.1 353.5 314.9 347.3 308.7L139.3 100.7C133.1 94.5 122.9 94.5 116.7 100.7C110.5 106.9 110.5 117.1 116.7 123.3L313.4 320L116.7 516.7C110.5 522.9 110.5 533.1 116.7 539.3C122.9 545.5 133.1 545.5 139.3 539.3zM331.3 539.3L539.3 331.3C545.5 325.1 545.5 314.9 539.3 308.7L331.3 100.7C325.1 94.5 314.9 94.5 308.7 100.7C302.5 106.9 302.5 117.1 308.7 123.3L505.4 320L308.7 516.7C302.5 522.9 302.5 533.1 308.7 539.3C314.9 545.5 325.1 545.5 331.3 539.3z"/>
+									</svg>
 									<?php echo esc_html( $service_terms[0]->name ); ?>
 								</a>
 							</p>
@@ -206,7 +209,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 				<div class="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16 items-start">
 					<!-- Left Column: Section Info -->
 					<div class="lg:sticky lg:top-8">
-						<p class="text-sage text-xs uppercase tracking-widest font-semibold mb-3">
+						<p class="text-olive text-xs uppercase tracking-widest font-semibold mb-3">
 							<?php esc_html_e( 'Beautiful Pairings', 'ecocltr' ); ?>
 						</p>
 						<h2 class="text-pretty text-2xl md:text-3xl font-bold text-dark mb-4">

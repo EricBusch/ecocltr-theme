@@ -16,14 +16,17 @@
 	<footer id="colophon" class="bg-dark text-light" role="contentinfo">
 		<?php
 		// Get business information from ACF.
-		$business_name    = get_field( 'business_name', 'option' );
-		$business_phone   = get_field( 'business_phone', 'option' );
-		$business_email   = get_field( 'business_email', 'option' );
-		$business_address = get_field( 'business_address', 'option' );
-		$social_facebook  = get_field( 'social_facebook', 'option' );
-		$social_instagram = get_field( 'social_instagram', 'option' );
-		$social_houzz     = get_field( 'social_houzz', 'option' );
-		$site_tagline     = get_bloginfo( 'description' );
+		$business_name              = get_field( 'business_name', 'option' );
+		$business_phone             = get_field( 'business_phone', 'option' );
+		$business_email             = get_field( 'business_email', 'option' );
+		$business_address           = get_field( 'business_address', 'option' );
+		$social_facebook            = get_field( 'social_facebook', 'option' );
+		$social_instagram           = get_field( 'social_instagram', 'option' );
+		$social_houzz               = get_field( 'social_houzz', 'option' );
+		$footer_description         = get_field( 'footer_description', 'option' );
+		$service_areas_description  = get_field( 'service_areas_description', 'option' );
+		$service_areas_list         = get_field( 'service_areas_list', 'option' );
+		$established_year           = get_field( 'established_year', 'option' );
 		?>
 
 		<div class="container mx-auto py-12 md:py-16">
@@ -38,9 +41,9 @@
 						</span>
 					</a>
 
-					<?php if ( $site_tagline ) : ?>
+					<?php if ( $footer_description ) : ?>
 						<p class="text-sage/80 text-sm mb-6 leading-relaxed">
-							<?php echo esc_html( $site_tagline ); ?>
+							<?php echo esc_html( $footer_description ); ?>
 						</p>
 					<?php endif; ?>
 
@@ -65,8 +68,8 @@
 
 							<?php if ( $social_houzz ) : ?>
 								<a href="<?php echo esc_url( $social_houzz ); ?>" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-burgundy flex items-center justify-center transition-colors" aria-label="<?php esc_attr_e( 'Houzz', 'ecocltr' ); ?>">
-									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-										<path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.236l7.5 3.75v7.528l-7.5 3.75-7.5-3.75V7.986l7.5-3.75z"/>
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 640 640">
+										<path d="M372 394.7L267.4 394.7L267.4 544L113.1 544L113.1 96L222.6 96L222.6 200.5L527.7 286.1L527.7 544L372 544L372 394.7z"/>
 									</svg>
 								</a>
 							<?php endif; ?>
@@ -139,7 +142,9 @@
 									<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
 								</svg>
 								<address class="text-sage/80 not-italic">
-									<?php echo nl2br( esc_html( $business_address ) ); ?>
+									<a href="<?php echo esc_url( 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $business_address ) ); ?>" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+										<?php echo nl2br( esc_html( $business_address ) ); ?>
+									</a>
 								</address>
 							</li>
 						<?php endif; ?>
@@ -152,17 +157,22 @@
 						<?php esc_html_e( 'Service Areas', 'ecocltr' ); ?>
 					</h3>
 
-					<p class="text-sage/80 text-sm leading-relaxed mb-4">
-						<?php esc_html_e( 'We proudly serve southern Ontario, from Owen Sound in the west to Collingwood in the east, and as far south as Markdale.', 'ecocltr' ); ?>
-					</p>
+					<?php if ( $service_areas_description ) : ?>
+						<p class="text-sage/80 text-sm leading-relaxed mb-4">
+							<?php echo esc_html( $service_areas_description ); ?>
+						</p>
+					<?php endif; ?>
 
-					<ul class="space-y-1 text-sm text-sage/80">
-						<li><?php esc_html_e( 'Owen Sound', 'ecocltr' ); ?></li>
-						<li><?php esc_html_e( 'Collingwood', 'ecocltr' ); ?></li>
-						<li><?php esc_html_e( 'Markdale', 'ecocltr' ); ?></li>
-						<li><?php esc_html_e( 'Grey County', 'ecocltr' ); ?></li>
-						<li><?php esc_html_e( 'Blue Mountains', 'ecocltr' ); ?></li>
-					</ul>
+					<?php if ( $service_areas_list ) : ?>
+						<ul class="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-sage/80">
+							<?php
+							$areas = array_filter( array_map( 'trim', explode( "\n", $service_areas_list ) ) );
+							foreach ( $areas as $area ) :
+								?>
+								<li><?php echo esc_html( $area ); ?></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</div>
 			</div>
 
@@ -170,7 +180,16 @@
 			<div class="border-t border-white/10 pt-8">
 				<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sage/60">
 					<div>
-						&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( $business_name ?: get_bloginfo( 'name' ) ); ?>. <?php esc_html_e( 'All rights reserved.', 'ecocltr' ); ?>
+						&copy;
+						<?php
+						$current_year = gmdate( 'Y' );
+						if ( $established_year && $established_year < $current_year ) {
+							echo esc_html( $established_year . '–' . $current_year );
+						} else {
+							echo esc_html( $current_year );
+						}
+						?>
+						<?php echo esc_html( $business_name ?: get_bloginfo( 'name' ) ); ?>. <?php esc_html_e( 'All rights reserved.', 'ecocltr' ); ?>
 					</div>
 					<div class="flex items-center gap-4">
 						<a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-white transition-colors">
