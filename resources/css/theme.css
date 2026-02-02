@@ -1,0 +1,66 @@
+@theme {
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 600px;
+    --breakpoint-md: 782px;
+    --breakpoint-lg: 960px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1440px;
+
+    /* EcoCultures Brand Colors */
+    --color-burgundy: #7F1B20;
+    --color-burgundy-50: #fdf2f2;
+    --color-burgundy-100: #fce4e5;
+    --color-burgundy-200: #facdd0;
+    --color-burgundy-300: #f5a3a8;
+    --color-burgundy-400: #ed6b74;
+    --color-burgundy-500: #e03b47;
+    --color-burgundy-600: #c92431;
+    --color-burgundy-700: #7F1B20;
+    --color-burgundy-800: #6a1a1e;
+    --color-burgundy-900: #5a1c1f;
+
+    --color-olive: #404524;
+    --color-olive-50: #f7f8f3;
+    --color-olive-100: #eef0e4;
+    --color-olive-200: #dce1c9;
+    --color-olive-300: #c2cba3;
+    --color-olive-400: #a5b07a;
+    --color-olive-500: #87925a;
+    --color-olive-600: #6a7546;
+    --color-olive-700: #525b38;
+    --color-olive-800: #404524;
+    --color-olive-900: #383d24;
+
+    --color-sage: #B2C398;
+    --color-sage-50: #f6f8f3;
+    --color-sage-100: #ebf0e3;
+    --color-sage-200: #d6e1c7;
+    --color-sage-300: #B2C398;
+    --color-sage-400: #9ab37d;
+    --color-sage-500: #7d9a5c;
+    --color-sage-600: #627d47;
+    --color-sage-700: #4d623a;
+    --color-sage-800: #404f32;
+    --color-sage-900: #37432c;
+
+    --color-light: #F5F5F4;
+    --color-dark: #1C1917;
+
+    /* Map to WordPress preset colors */
+    --color-primary: var(--wp--preset--color--burgundy, #7F1B20);
+    --color-secondary: var(--wp--preset--color--olive, #404524);
+
+    --text-xs: var(--wp--preset--font-size--xs, 0.75rem);
+    --text-sm: var(--wp--preset--font-size--sm, 0.875rem);
+    --text-base: var(--wp--preset--font-size--base, 1rem);
+    --text-lg: var(--wp--preset--font-size--lg, 1.125rem);
+    --text-xl: var(--wp--preset--font-size--xl, 1.25rem);
+    --text-2xl: var(--wp--preset--font-size--2-xl, 1.5rem);
+    --text-3xl: var(--wp--preset--font-size--3-xl, 1.875rem);
+    --text-4xl: var(--wp--preset--font-size--4-xl, 2.25rem);
+    --text-5xl: var(--wp--preset--font-size--5-xl, 3rem);
+    --text-6xl: var(--wp--preset--font-size--6-xl, 3.75rem);
+    --text-7xl: var(--wp--preset--font-size--7-xl, 4.5rem);
+    --text-8xl: var(--wp--preset--font-size--8-xl, 6rem);
+    --text-9xl: var(--wp--preset--font-size--9-xl, 8rem);
+}

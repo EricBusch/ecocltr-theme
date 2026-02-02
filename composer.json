@@ -1,0 +1,29 @@
+{
+	"$schema": "https://getcomposer.org/schema.json",
+	"name": "ecocltr/ecocltr",
+	"description": "Custom WordPress theme based on TailPress with Tailwind CSS.",
+	"type": "project",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"TailPress\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=8.0.2",
+		"tailpress/framework": "^5.0.4",
+		"automattic/jetpack-autoloader": "^2.10"
+	},
+	"require-dev": {
+		"tailpress/cli": "^5.0",
+		"squizlabs/php_codesniffer": "*",
+		"wp-coding-standards/wpcs": "*",
+		"dealerdirect/phpcodesniffer-composer-installer": "*"
+	},
+	"config": {
+		"allow-plugins": {
+			"automattic/jetpack-autoloader": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
+}
