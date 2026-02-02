@@ -202,36 +202,74 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 	<!-- Related Services -->
 	<?php if ( $related_services ) : ?>
 		<section class="py-16 md:py-24 bg-white">
-			<div class="container mx-auto">
-				<?php
-				get_template_part(
-					'template-parts/section',
-					'header',
-					array(
-						'eyebrow'     => __( 'Beautiful Pairings', 'ecocltr' ),
-						'heading'     => __( 'Companion Landscaping', 'ecocltr' ),
-						'description' => sprintf(
-							/* translators: %s: Current service name */
-							__( 'These services work beautifully alongside %s to create a thriving, interconnected landscape.', 'ecocltr' ),
-							get_the_title()
-						),
-					)
-				);
-				?>
+			<div class="container mx-auto max-w-7xl">
+				<div class="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16 items-start">
+					<!-- Left Column: Section Info -->
+					<div class="lg:sticky lg:top-8">
+						<p class="text-sage text-xs uppercase tracking-widest font-semibold mb-3">
+							<?php esc_html_e( 'Beautiful Pairings', 'ecocltr' ); ?>
+						</p>
+						<h2 class="text-pretty text-3xl md:text-4xl font-bold text-dark mb-4">
+							<?php esc_html_e( 'Companion Landscaping', 'ecocltr' ); ?>
+						</h2>
+						<p class="text-balance text-lg text-dark/70 leading-relaxed">
+							<?php
+							printf(
+								/* translators: %s: Current service name */
+								esc_html__( 'These services work beautifully alongside %s to create a thriving, interconnected landscape.', 'ecocltr' ),
+								'<strong>' . esc_html( get_the_title() ) . '</strong>'
+							);
+							?>
+						</p>
+					</div>
 
-				<div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
-					<?php
-					foreach ( $related_services as $service ) :
-						$GLOBALS['post'] = $service; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-						setup_postdata( $service );
-						?>
-						<div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-							<?php get_template_part( 'template-parts/card', 'service' ); ?>
-						</div>
+					<!-- Right Column: Related Services -->
+					<div class="space-y-4">
 						<?php
-					endforeach;
-					wp_reset_postdata();
-					?>
+						foreach ( $related_services as $service ) :
+							$service_intro = ecocltr_get_field( 'service_intro', $service->ID );
+							$excerpt       = $service_intro ? $service_intro : get_the_excerpt( $service->ID );
+							?>
+							<article class="group bg-white border border-dark/10 rounded-xl overflow-hidden hover:shadow-md transition-all">
+								<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="flex items-center gap-4 p-4 !no-underline">
+									<!-- Service Image -->
+									<?php if ( has_post_thumbnail( $service->ID ) ) : ?>
+										<div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
+											<?php
+											echo get_the_post_thumbnail(
+												$service->ID,
+												'thumbnail',
+												array(
+													'class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300',
+													'alt'   => esc_attr( get_the_title( $service->ID ) ),
+												)
+											);
+											?>
+										</div>
+									<?php endif; ?>
+
+									<!-- Service Content -->
+									<div class="flex-1 min-w-0">
+										<h3 class="text-lg font-semibold text-dark group-hover:text-olive transition-colors mb-1">
+											<?php echo esc_html( get_the_title( $service->ID ) ); ?>
+										</h3>
+										<?php if ( $excerpt ) : ?>
+											<p class="text-sm text-dark/60 line-clamp-2">
+												<?php echo esc_html( wp_trim_words( $excerpt, 15 ) ); ?>
+											</p>
+										<?php endif; ?>
+									</div>
+
+									<!-- Arrow Icon -->
+									<div class="flex-shrink-0">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-sage group-hover:text-olive group-hover:translate-x-1 transition-all">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+										</svg>
+									</div>
+								</a>
+							</article>
+						<?php endforeach; ?>
+					</div>
 				</div>
 			</div>
 		</section>
