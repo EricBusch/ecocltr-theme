@@ -105,23 +105,47 @@ function ecocltr_cf7_custom_styles() {
 			box-shadow: 0 0 0 2px #7F1B20, 0 0 0 4px rgba(127, 27, 32, 0.2);
 		}
 
+		/* CF7 Form layout */
+		.wpcf7 .wpcf7-form {
+			display: flex;
+			flex-direction: column;
+		}
+
 		/* CF7 Response messages */
 		.wpcf7 .wpcf7-response-output {
 			border-radius: 0.5rem;
-			padding: 1.5rem;
-			margin-top: 1.5rem !important;
+			padding: 1rem 1.25rem;
+			margin: 0 0 1.5rem !important;
+			order: -1;
+			border: none !important;
 		}
 
-		.wpcf7 .wpcf7-mail-sent-ok {
+		/* Success message styling */
+		.wpcf7 .wpcf7-response-output.ecocltr-success {
+			display: flex !important;
+			align-items: center;
+			gap: 0.75rem;
 			background-color: rgba(178, 195, 152, 0.2);
-			border: 1px solid #B2C398;
+			border: 1px solid #B2C398 !important;
 			color: #404524;
+			font-weight: 500;
 		}
 
-		.wpcf7 .wpcf7-validation-errors,
-		.wpcf7 .wpcf7-acceptance-missing {
+		.wpcf7 .wpcf7-response-output.ecocltr-success::before {
+			content: '';
+			display: block;
+			flex-shrink: 0;
+			width: 1.5rem;
+			height: 1.5rem;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23404524'%3E%3Cpath fill-rule='evenodd' d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		/* Validation error messages */
+		.wpcf7 .wpcf7-response-output.ecocltr-error {
 			background-color: rgba(127, 27, 32, 0.1);
-			border: 1px solid rgba(127, 27, 32, 0.2);
+			border: 1px solid rgba(127, 27, 32, 0.2) !important;
 			color: #7F1B20;
 		}
 
@@ -143,8 +167,8 @@ function ecocltr_cf7_custom_styles() {
 			margin: 0;
 		}
 
-		/* Screen reader text */
-		.wpcf7 .wpcf7-form .screen-reader-response {
+		/* Screen reader text - element is a sibling of form, not inside it */
+		.wpcf7 > .screen-reader-response {
 			position: absolute;
 			left: -9999px;
 		}
@@ -189,14 +213,17 @@ add_filter( 'wpcf7_mail_components', 'ecocltr_cf7_dynamic_email_recipient', 10, 
  *
  * @since 1.0.0
  *
- * @param string $message Success message.
+ * @param string $message Message text.
+ * @param string $status  Message status key.
  * @return string Modified message.
  */
-function ecocltr_cf7_success_message( $message ) {
-	$message = esc_html__( 'Thank you for your message! We\'ve received your inquiry and will get back to you as soon as possible.', 'ecocltr' );
+function ecocltr_cf7_success_message( $message, $status ) {
+	if ( 'mail_sent_ok' === $status ) {
+		$message = __( 'Thank you for your message! We\'ve received your inquiry and will get back to you as soon as possible.', 'ecocltr' );
+	}
 	return $message;
 }
-add_filter( 'wpcf7_display_message', 'ecocltr_cf7_success_message' );
+add_filter( 'wpcf7_display_message', 'ecocltr_cf7_success_message', 10, 2 );
 
 /**
  * Check if the current environment is local/development.

@@ -124,17 +124,15 @@ $random_testimonial = ecocltr_get_random_testimonial();
 						<!-- Category Section -->
 						<div id="category-<?php echo esc_attr( $category->slug ); ?>" class="relative scroll-mt-8">
 							<div class="bg-white rounded-2xl shadow-sm border border-dark/5 overflow-hidden">
-								<div class="grid grid-cols-1 md:grid-cols-[16rem_1fr] lg:grid-cols-[20rem_1fr]">
+								<div class="grid grid-cols-1 md:grid-cols-[16rem_1fr] lg:grid-cols-[1fr_2fr]">
 									<!-- Category Image -->
 									<?php if ( $thumbnail_url ) : ?>
-										<div class="w-full">
-											<div class="aspect-[4/3] w-full h-full">
-												<img
-													src="<?php echo esc_url( $thumbnail_url ); ?>"
-													alt="<?php echo esc_attr( $category->name ); ?>"
-													class="w-full h-full object-cover object-center"
-												>
-											</div>
+										<div class="">
+											<img
+												src="<?php echo esc_url( $thumbnail_url ); ?>"
+												alt="<?php echo esc_attr( $category->name ); ?>"
+												class="w-full h-full object-cover object-center aspect-[4/3]"
+											>
 										</div>
 									<?php endif; ?>
 

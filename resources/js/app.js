@@ -85,6 +85,44 @@
     }
 
     /**
+     * Initialize CF7 response styling via custom DOM events.
+     */
+    function initCF7ResponseStyling() {
+        // CF7 dispatches custom events on the form's wrapper element.
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+            var responseOutput = event.target.querySelector( '.wpcf7-response-output' );
+            if ( responseOutput ) {
+                responseOutput.classList.remove( 'ecocltr-error' );
+                responseOutput.classList.add( 'ecocltr-success' );
+            }
+        } );
+
+        document.addEventListener( 'wpcf7invalid', function( event ) {
+            var responseOutput = event.target.querySelector( '.wpcf7-response-output' );
+            if ( responseOutput ) {
+                responseOutput.classList.remove( 'ecocltr-success' );
+                responseOutput.classList.add( 'ecocltr-error' );
+            }
+        } );
+
+        document.addEventListener( 'wpcf7spam', function( event ) {
+            var responseOutput = event.target.querySelector( '.wpcf7-response-output' );
+            if ( responseOutput ) {
+                responseOutput.classList.remove( 'ecocltr-success' );
+                responseOutput.classList.add( 'ecocltr-error' );
+            }
+        } );
+
+        document.addEventListener( 'wpcf7mailfailed', function( event ) {
+            var responseOutput = event.target.querySelector( '.wpcf7-response-output' );
+            if ( responseOutput ) {
+                responseOutput.classList.remove( 'ecocltr-success' );
+                responseOutput.classList.add( 'ecocltr-error' );
+            }
+        } );
+    }
+
+    /**
      * Validate a single form field.
      *
      * @param {HTMLElement} field The field to validate.
@@ -178,6 +216,7 @@
         initMobileNav();
         initLightbox();
         initContactForm();
+        initCF7ResponseStyling();
     }
 
     // Initialize on DOMContentLoaded.

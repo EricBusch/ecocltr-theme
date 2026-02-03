@@ -196,3 +196,24 @@ function ecocltr_add_menu_link_class( $atts, $item, $args )
 	return $atts;
 }
 add_filter('nav_menu_link_attributes', 'ecocltr_add_menu_link_class', 10, 3);
+
+/**
+ * Configure SMTP mailer for local Herd mail server.
+ *
+ * @since 1.0.0
+ *
+ * @param PHPMailer $phpmailer PHPMailer instance.
+ * @return void
+ */
+function herd_mailer( $phpmailer ) {
+	$phpmailer->isSMTP();
+	$phpmailer->Host        = '127.0.0.1';
+	$phpmailer->SMTPAuth    = true;
+	$phpmailer->Port        = 2525;
+	$phpmailer->Username    = 'WordPress';
+	$phpmailer->Password    = '';
+	$phpmailer->SMTPSecure  = '';
+	$phpmailer->SMTPAutoTLS = false;
+
+}
+add_action( 'phpmailer_init', 'herd_mailer' );

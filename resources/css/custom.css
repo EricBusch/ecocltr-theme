@@ -167,7 +167,8 @@
     border-radius: 0.5rem;
   }
 
-  .wpcf7-mail-sent-ok {
+  /* CF7 5.7+ uses .sent class on the form element */
+  &.sent .wpcf7-response-output {
     background-color: var(--color-sage-50);
     border: 1px solid var(--color-sage);
     color: var(--color-olive);
