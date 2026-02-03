@@ -29,7 +29,7 @@ $business_phone  = ecocltr_get_business_info( 'business_phone' );
 			</a>
 
 			<?php if ( $business_phone ) : ?>
-				<span class="text-dark/60 hidden sm:inline">or</span>
+				<span class="text-dark/70 hidden sm:inline">or</span>
 				<a href="tel:<?php echo esc_attr( ecocltr_phone_href( $business_phone ) ); ?>" class="inline-flex items-center gap-2 text-dark font-semibold text-lg hover:text-burgundy transition-colors">
 					<?php ecocltr_display_icon( 'phone', 'w-5 h-5' ); ?>
 					<?php echo esc_html( $business_phone ); ?>

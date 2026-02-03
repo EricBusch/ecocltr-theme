@@ -18,6 +18,11 @@ $why_choose    = ecocltr_get_field( 'about_why_choose', get_the_ID() );
 ?>
 
 <div id="primary" class="content-area">
+	<!-- Page Header with H1 -->
+	<header class="screen-reader-text">
+		<h1><?php the_title(); ?></h1>
+	</header>
+
 	<!-- Meet the Team Section -->
 	<?php if ( $owner_photo || $owner_bio ) : ?>
 		<section class="py-16 md:py-24 bg-sage/20">

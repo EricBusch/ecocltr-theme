@@ -86,7 +86,7 @@ class Pagination {
 
 	private static function render_page_links( int $paged, array $links ): void {
 		foreach ( $links as $link ) {
-			$class = $paged === $link ? 'text-dark' : 'text-dark/60';
+			$class = $paged === $link ? 'text-dark' : 'text-dark/70';
 			printf(
 				'<li><a href="%s" class="%s px-4 mx-4">%s</a></li>',
 				esc_url( get_pagenum_link( $link ) ),

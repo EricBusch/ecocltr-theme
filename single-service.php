@@ -54,9 +54,9 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 					<!-- Right Column: Contact CTA -->
 					<div class="lg:col-span-1">
 						<div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 sticky top-6">
-							<h3 class="text-xl font-semibold text-white mb-3">
+							<h2 class="text-xl font-semibold text-white mb-3">
 								<?php esc_html_e( 'Interested in this service?', 'ecocltr' ); ?>
-							</h3>
+							</h2>
 							<p class="text-sage/90 mb-6 text-sm leading-relaxed text-pretty">
 								<?php esc_html_e( 'Get in touch to discuss how we can help with your project.', 'ecocltr' ); ?>
 							</p>
@@ -99,9 +99,9 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 							<!-- Related Projects -->
 							<?php if ( $related_projects ) : ?>
 								<div class="bg-sage/20 rounded-lg p-6 mb-8">
-									<h3 class="text-xl font-semibold text-dark mb-4">
+									<h2 class="text-xl font-semibold text-dark mb-4">
 										<?php esc_html_e( 'Featured Projects', 'ecocltr' ); ?>
-									</h3>
+									</h2>
 
 									<ul class="space-y-4">
 										<?php foreach ( $related_projects as $project ) : ?>
@@ -128,7 +128,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 													$project_location = ecocltr_get_field( 'project_location', $project->ID );
 													if ( $project_location ) :
 														?>
-														<p class="text-sm text-dark/60">
+														<p class="text-sm text-dark/70">
 															<?php echo esc_html( $project_location ); ?>
 														</p>
 													<?php endif; ?>
@@ -150,9 +150,9 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 							if ( $all_service_categories ) :
 								?>
 								<div class="bg-sage/20 rounded-lg p-6">
-									<h3 class="text-lg font-semibold text-dark mb-4">
+									<h2 class="text-lg font-semibold text-dark mb-4">
 										<?php esc_html_e( 'All Services', 'ecocltr' ); ?>
-									</h3>
+									</h2>
 
 									<nav class="space-y-4">
 										<?php foreach ( $all_service_categories as $category ) : ?>
@@ -161,9 +161,9 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 											if ( $category_services ) :
 												?>
 												<div>
-													<h4 class="text-sm font-semibold text-dark/80 uppercase tracking-wider mb-2">
+													<h3 class="text-sm font-semibold text-dark/80 uppercase tracking-wider mb-2">
 														<?php echo esc_html( $category->name ); ?>
-													</h4>
+													</h3>
 													<ul class="space-y-1.5">
 														<?php foreach ( $category_services as $cat_service ) : ?>
 															<?php $is_current = ( $cat_service->ID === $service_id ); ?>
@@ -251,7 +251,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 											<?php echo esc_html( get_the_title( $service->ID ) ); ?>
 										</h3>
 										<?php if ( $excerpt ) : ?>
-											<p class="text-sm text-dark/60 line-clamp-2">
+											<p class="text-sm text-dark/70 line-clamp-2">
 												<?php echo esc_html( wp_trim_words( $excerpt, 15 ) ); ?>
 											</p>
 										<?php endif; ?>

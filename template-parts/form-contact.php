@@ -24,7 +24,7 @@ if ( ! function_exists( 'wpcf7_contact_form' ) ) {
 		<?php
 	} else {
 		?>
-		<p class="text-dark/60">
+		<p class="text-dark/70">
 			<?php esc_html_e( 'The contact form is temporarily unavailable. Please try again later.', 'ecocltr' ); ?>
 		</p>
 		<?php

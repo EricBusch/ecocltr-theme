@@ -52,7 +52,7 @@ $map_image     = ecocltr_get_field('contact_map_image');
                                     ?>
                                     <div class="flex items-start gap-4">
                                         <div class="flex-shrink-0 mt-1">
-                                            <?php ecocltr_display_icon( 'map-pin', 'w-6 h-6 text-dark/60' ); ?>
+                                            <?php ecocltr_display_icon( 'map-pin', 'w-6 h-6 text-dark/70' ); ?>
                                         </div>
                                         <div class="text-dark/70">
                                             <?php echo esc_html($address); ?>
@@ -93,10 +93,12 @@ $map_image     = ecocltr_get_field('contact_map_image');
                         $client_name = get_field('testimonial_client_name', $testimonial->ID);
                         ?>
                         <div class="hidden lg:block bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/40">
-                            <blockquote class="text-dark/70 text-lg mb-4 leading-relaxed italic">
-                                "<?php echo esc_html($quote); ?>"
+                            <blockquote class="text-dark/70 text-lg leading-relaxed italic">
+                                <p class="mb-4">"<?php echo esc_html($quote); ?>"</p>
+                                <footer class="font-semibold text-dark not-italic">
+                                    <cite><?php echo esc_html($client_name); ?></cite>
+                                </footer>
                             </blockquote>
-                            <p class="font-semibold text-dark"><?php echo esc_html($client_name); ?></p>
                         </div>
                     <?php endif; ?>
                 </div>

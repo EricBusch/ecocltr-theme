@@ -68,9 +68,9 @@ $term = get_queried_object();
 
 							<!-- Content Overlay -->
 							<a href="<?php the_permalink(); ?>" class="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-white">
-								<h3 class="text-pretty text-xl md:text-2xl font-bold mb-3">
+								<h2 class="text-pretty text-xl md:text-2xl font-bold mb-3">
 									<?php the_title(); ?>
-								</h3>
+								</h2>
 
 								<?php if ( $excerpt ) : ?>
 									<p class="text-balance text-white/90 leading-relaxed mb-4 line-clamp-3">
@@ -99,7 +99,7 @@ $term = get_queried_object();
 
 			<?php else : ?>
 				<div class="text-center py-12">
-					<p class="text-dark/60 text-lg">
+					<p class="text-dark/70 text-lg">
 						<?php esc_html_e( 'No services found in this category.', 'ecocltr' ); ?>
 					</p>
 				</div>

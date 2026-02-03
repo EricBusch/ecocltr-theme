@@ -87,7 +87,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 
 			<?php else : ?>
 				<div class="text-center py-12">
-					<p class="text-dark/60 text-lg">
+					<p class="text-dark/70 text-lg">
 						<?php esc_html_e( 'No projects found.', 'ecocltr' ); ?>
 					</p>
 				</div>

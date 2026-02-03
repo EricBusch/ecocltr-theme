@@ -43,6 +43,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 				loop
 				playsinline
 				poster=""
+				aria-label="<?php esc_attr_e( 'Background video showing natural landscaping and ecological restoration work', 'ecocltr' ); ?>"
 			>
 				<source src="<?php echo esc_url( $hero_video_url ); ?>" type="video/mp4">
 			</video>
@@ -176,7 +177,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 										?>
 										<ul class="<?php echo esc_attr( $list_classes ); ?>">
 											<?php foreach ( $category_services as $service ) : ?>
-												<li class="flex items-center text-dark/60">
+												<li class="flex items-center text-dark/70">
 													<?php ecocltr_display_icon( 'check', 'w-4 h-4 mr-2 text-sage-500 shrink-0' ); ?>
 													<span><?php echo esc_html( $service->post_title ); ?></span>
 												</li>

@@ -54,4 +54,26 @@
   a {
     text-decoration: none !important;
   }
+
+  /* Focus visible styles for accessibility */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-burgundy);
+    outline-offset: 2px;
+  }
+
+  /* Enhanced focus for interactive elements with dark backgrounds */
+  .bg-burgundy a:focus-visible,
+  .bg-burgundy button:focus-visible,
+  .bg-olive a:focus-visible,
+  .bg-olive button:focus-visible,
+  .bg-dark a:focus-visible,
+  .bg-dark button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
 }

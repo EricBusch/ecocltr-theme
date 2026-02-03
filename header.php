@@ -18,6 +18,10 @@
 <body <?php body_class( 'bg-light text-dark antialiased' ); ?>>
 <?php do_action( 'ecocltr_site_before' ); ?>
 
+<a class="skip-link screen-reader-text" href="#main-content">
+	<?php esc_html_e( 'Skip to content', 'ecocltr' ); ?>
+</a>
+
 <div id="page" class="min-h-screen flex flex-col">
 	<?php do_action( 'ecocltr_header' ); ?>
 
@@ -97,7 +101,7 @@
 
 				<?php if ( has_nav_menu( 'primary' ) ) : ?>
 					<div class="md:hidden">
-						<button type="button" aria-label="<?php esc_attr_e( 'Toggle navigation', 'ecocltr' ); ?>" id="primary-menu-toggle">
+						<button type="button" aria-label="<?php esc_attr_e( 'Toggle navigation', 'ecocltr' ); ?>" aria-expanded="false" aria-controls="primary-navigation" id="primary-menu-toggle">
 							<?php ecocltr_display_icon( 'menu', 'size-6' ); ?>
 						</button>
 					</div>
@@ -105,7 +109,7 @@
 			</div>
 
 			<div id="primary-navigation" class="hidden md:flex md:bg-transparent md:flex-1 md:justify-center items-center border border-light md:border-none rounded-xl p-4 md:p-0">
-				<nav class="md:flex-1 md:flex md:justify-center">
+				<nav class="md:flex-1 md:flex md:justify-center" aria-label="<?php esc_attr_e( 'Primary Navigation', 'ecocltr' ); ?>">
 					<?php if ( current_user_can( 'administrator' ) && ! has_nav_menu( 'primary' ) ) : ?>
 						<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="text-sm text-zinc-600"><?php esc_html_e( 'Edit Menus', 'ecocltr' ); ?></a>
 					<?php else : ?>
@@ -133,4 +137,4 @@
 
 	<div id="content" class="site-content grow">
 		<?php do_action( 'ecocltr_content_start' ); ?>
-		<main>
+		<main id="main-content" role="main">

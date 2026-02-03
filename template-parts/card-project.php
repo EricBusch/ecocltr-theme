@@ -34,7 +34,7 @@ $project_year     = ecocltr_get_field( 'project_year', $project_id );
 		</h3>
 
 		<?php if ( $project_location || $project_year ) : ?>
-			<div class="flex flex-wrap gap-4 text-sm text-dark/60 mb-4">
+			<div class="flex flex-wrap gap-4 text-sm text-dark/70 mb-4">
 				<?php if ( $project_location ) : ?>
 					<span class="inline-flex items-center">
 						<?php ecocltr_display_icon( 'map-pin', 'w-4 h-4 mr-1' ); ?>

@@ -38,7 +38,7 @@ if ( ! $heading ) {
 	</h2>
 
 	<?php if ( $description ) : ?>
-		<p class="text-balance text-lg text-dark/60 leading-relaxed">
+		<p class="text-balance text-lg text-dark/70 leading-relaxed">
 			<?php echo esc_html( $description ); ?>
 		</p>
 	<?php endif; ?>

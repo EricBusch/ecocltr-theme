@@ -76,7 +76,7 @@
 					<h3 class="text-white font-semibold text-lg mb-4">
 						<?php esc_html_e( 'Quick Links', 'ecocltr' ); ?>
 					</h3>
-					<nav>
+					<nav aria-label="<?php esc_attr_e( 'Footer Navigation', 'ecocltr' ); ?>">
 						<?php
 						wp_nav_menu(
 							array(
