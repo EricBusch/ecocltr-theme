@@ -81,7 +81,31 @@ function ecocltr(): TailPress\Framework\Theme
         );
 }
 
-ecocltr();
+/**
+ * Load theme text domain for translations.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function ecocltr_load_textdomain()
+{
+    load_theme_textdomain('ecocltr', get_template_directory() . '/languages');
+}
+add_action('after_setup_theme', 'ecocltr_load_textdomain', 1);
+
+/**
+ * Initialize theme after text domain is loaded.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function ecocltr_init_theme()
+{
+    ecocltr();
+}
+add_action('after_setup_theme', 'ecocltr_init_theme', 10);
 
 /**
  * Enqueue self-hosted font stylesheet.
@@ -123,19 +147,6 @@ function ecocltr_enqueue_lightbox()
     }
 }
 add_action('wp_enqueue_scripts', 'ecocltr_enqueue_lightbox');
-
-/**
- * Load theme text domain for translations.
- *
- * @since 1.0.0
- *
- * @return void
- */
-function ecocltr_load_textdomain()
-{
-    load_theme_textdomain('ecocltr', get_template_directory() . '/languages');
-}
-add_action('after_setup_theme', 'ecocltr_load_textdomain');
 
 /**
  * Flush rewrite rules on theme activation.
