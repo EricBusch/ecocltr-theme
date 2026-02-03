@@ -433,26 +433,3 @@ function ecocltr_display_icon( $name, $class = '' ) {
 	echo ecocltr_icon( $name, $class ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
-/**
- * Get Static Forms API key from options.
- *
- * @since 1.0.0
- *
- * @return string Static Forms API key or empty string if not set.
- */
-function ecocltr_get_staticforms_api_key()
-{
-    return ecocltr_get_business_info('staticforms_api_key');
-}
-
-/**
- * Get reCAPTCHA Site Key from options.
- *
- * @since 1.0.0
- *
- * @return string reCAPTCHA Site Key or empty string if not set.
- */
-function ecocltr_get_recaptcha_site_key()
-{
-    return ecocltr_get_business_info('recaptcha_site_key');
-}
