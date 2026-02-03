@@ -109,29 +109,10 @@ $related_services = ecocltr_get_related_services( $project_id );
 									</h2>
 
 									<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-										<?php
-										foreach ( $gallery_images as $image ) :
-											// Get image caption data.
-											$image_id          = $image['ID'];
-											$image_title       = get_the_title( $image_id );
-											$image_description = wp_get_attachment_caption( $image_id );
-
-											// Build caption text for lightbox with title above description.
-											$caption_html = '';
-											if ( $image_title && $image_description ) {
-												$caption_html = '<strong>' . $image_title . '</strong><br>' . $image_description;
-											} elseif ( $image_title ) {
-												$caption_html = '<strong>' . $image_title . '</strong>';
-											} elseif ( $image_description ) {
-												$caption_html = $image_description;
-											}
-											?>
+										<?php foreach ( $gallery_images as $image ) : ?>
 											<a
 												href="<?php echo esc_url( $image['url'] ); ?>"
 												data-fslightbox="project-gallery"
-												<?php if ( $caption_html ) : ?>
-													data-caption="<?php echo esc_attr( $caption_html ); ?>"
-												<?php endif; ?>
 												class="aspect-square rounded-lg overflow-hidden block group"
 											>
 												<img
