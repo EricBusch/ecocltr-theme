@@ -26,9 +26,7 @@ $related_services = ecocltr_get_related_services( $project_id );
 			<div class="container mx-auto">
 				<p class="text-sage text-sm uppercase tracking-wider mb-4">
 					<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-flex items-center gap-2 hover:text-white transition-colors">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-3 h-3 text-white" fill="currentColor">
-							<path d="M139.3 539.3L347.3 331.3C353.5 325.1 353.5 314.9 347.3 308.7L139.3 100.7C133.1 94.5 122.9 94.5 116.7 100.7C110.5 106.9 110.5 117.1 116.7 123.3L313.4 320L116.7 516.7C110.5 522.9 110.5 533.1 116.7 539.3C122.9 545.5 133.1 545.5 139.3 539.3zM331.3 539.3L539.3 331.3C545.5 325.1 545.5 314.9 539.3 308.7L331.3 100.7C325.1 94.5 314.9 94.5 308.7 100.7C302.5 106.9 302.5 117.1 308.7 123.3L505.4 320L308.7 516.7C302.5 522.9 302.5 533.1 308.7 539.3C314.9 545.5 325.1 545.5 331.3 539.3z"/>
-						</svg>
+						<?php ecocltr_display_icon( 'chevron-double-right', 'w-3 h-3 text-white' ); ?>
 						<?php esc_html_e( 'Projects', 'ecocltr' ); ?>
 					</a>
 				</p>
@@ -41,19 +39,14 @@ $related_services = ecocltr_get_related_services( $project_id );
 					<div class="flex flex-wrap gap-6 text-sage">
 						<?php if ( $project_location ) : ?>
 							<span class="inline-flex items-center">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-									<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-								</svg>
+								<?php ecocltr_display_icon( 'map-pin', 'w-5 h-5 mr-2' ); ?>
 								<?php echo esc_html( $project_location ); ?>
 							</span>
 						<?php endif; ?>
 
 						<?php if ( $project_year ) : ?>
 							<span class="inline-flex items-center">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-								</svg>
+								<?php ecocltr_display_icon( 'calendar', 'w-5 h-5 mr-2' ); ?>
 								<?php echo esc_html( gmdate( 'Y', strtotime( $project_year ) ) ); ?>
 							</span>
 						<?php endif; ?>
@@ -147,9 +140,7 @@ $related_services = ecocltr_get_related_services( $project_id );
 										<?php foreach ( $related_services as $service ) : ?>
 											<li>
 												<a href="<?php echo esc_url( get_permalink( $service->ID ) ); ?>" class="flex items-center text-dark hover:text-burgundy transition-colors">
-													<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-olive mr-3 flex-shrink-0">
-														<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-													</svg>
+													<?php ecocltr_display_icon( 'check', 'w-4 h-4 text-olive mr-3 flex-shrink-0' ); ?>
 													<?php echo esc_html( get_the_title( $service->ID ) ); ?>
 												</a>
 											</li>
@@ -158,9 +149,7 @@ $related_services = ecocltr_get_related_services( $project_id );
 
 									<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors">
 										<?php esc_html_e( 'View All Services', 'ecocltr' ); ?>
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-										</svg>
+										<?php ecocltr_display_icon( 'arrow-right', 'w-4 h-4 ml-1' ); ?>
 									</a>
 								</div>
 							<?php endif; ?>

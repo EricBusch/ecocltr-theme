@@ -177,9 +177,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 										<ul class="<?php echo esc_attr( $list_classes ); ?>">
 											<?php foreach ( $category_services as $service ) : ?>
 												<li class="flex items-center text-dark/60">
-													<svg class="w-4 h-4 mr-2 text-sage-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-													</svg>
+													<?php ecocltr_display_icon( 'check', 'w-4 h-4 mr-2 text-sage-500 shrink-0' ); ?>
 													<span><?php echo esc_html( $service->post_title ); ?></span>
 												</li>
 											<?php endforeach; ?>
@@ -190,9 +188,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 										<span class="transition-colors">
 											<?php esc_html_e( 'Explore services', 'ecocltr' ); ?>
 										</span>
-										<svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-										</svg>
+										<?php ecocltr_display_icon( 'arrow-right', 'w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform' ); ?>
 									</a>
 								</div>
 							</div>
@@ -255,9 +251,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 				<div class="text-center">
 					<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="group inline-flex items-center border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:shadow-lg">
 						<span><?php esc_html_e( 'View All Services', 'ecocltr' ); ?></span>
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-						</svg>
+						<?php ecocltr_display_icon( 'arrow-right', 'w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform' ); ?>
 					</a>
 				</div>
 			</div>

@@ -43,15 +43,11 @@ $random_testimonial = ecocltr_get_random_testimonial();
 					<div class="flex flex-wrap gap-4">
 						<a href="#service-categories" class="inline-flex items-center gap-2 bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'Browse Categories', 'ecocltr' ); ?>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-								<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-							</svg>
+							<?php ecocltr_display_icon( 'chevron-down', 'w-4 h-4' ); ?>
 						</a>
 						<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/50 hover:border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'Get Started', 'ecocltr' ); ?>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-							</svg>
+							<?php ecocltr_display_icon( 'arrow-right', 'w-4 h-4' ); ?>
 						</a>
 					</div>
 				</div>
@@ -110,9 +106,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 									<div class="p-6 md:p-8 min-w-0">
 										<!-- Badge -->
 										<div class="inline-flex items-center gap-2 <?php echo esc_attr( $badge_bg_class . ' ' . $badge_text_class ); ?> text-xs uppercase tracking-widest font-semibold px-3 py-1.5 rounded-full mb-3">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-											</svg>
+											<?php ecocltr_display_icon( 'menu-lines', 'w-3.5 h-3.5' ); ?>
 											<?php esc_html_e( 'Service Type', 'ecocltr' ); ?>
 										</div>
 
@@ -142,9 +136,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 														<!-- Checkmark Icon -->
 														<div class="flex-shrink-0 mt-0.5">
 															<div class="w-5 h-5 <?php echo esc_attr( $check_bg_class ); ?> rounded-full flex items-center justify-center">
-																<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3 text-white">
-																	<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
-																</svg>
+																<?php ecocltr_display_icon( 'check', 'w-3 h-3 text-white' ); ?>
 															</div>
 														</div>
 														<!-- Service Name -->
@@ -164,9 +156,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 													class="inline-flex items-center gap-2 <?php echo esc_attr( $link_class ); ?> font-semibold text-sm transition-colors group"
 												>
 													<?php esc_html_e( 'View all services', 'ecocltr' ); ?>
-													<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-													</svg>
+													<?php ecocltr_display_icon( 'arrow-right', 'w-4 h-4 group-hover:translate-x-1 transition-transform' ); ?>
 												</a>
 											</div>
 										<?php else : ?>

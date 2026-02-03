@@ -84,6 +84,26 @@ function ecocltr(): TailPress\Framework\Theme
 ecocltr();
 
 /**
+ * Enqueue self-hosted font stylesheet.
+ *
+ * Loads fonts locally instead of from Google Fonts CDN
+ * for GDPR compliance and improved performance.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function ecocltr_enqueue_fonts() {
+	wp_enqueue_style(
+		'ecocltr-fonts',
+		get_template_directory_uri() . '/resources/css/fonts.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ecocltr_enqueue_fonts' );
+
+/**
  * Enqueue FSLightbox script on single project pages.
  *
  * @since 1.0.0

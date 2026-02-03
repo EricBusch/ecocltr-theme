@@ -32,5 +32,23 @@ if ( ! function_exists( 'wpcf7_contact_form' ) ) {
 	return;
 }
 
-// Display the Contact Form 7 form.
-echo do_shortcode( '[contact-form-7 id="30" title="Contact Form"]' );
+// Display the Contact Form 7 form using the ID from ACF options.
+$cf7_form_id = ecocltr_get_business_info( 'cf7_form_id' );
+
+if ( $cf7_form_id ) {
+	echo do_shortcode( '[contact-form-7 id="' . intval( $cf7_form_id ) . '"]' );
+} elseif ( current_user_can( 'manage_options' ) ) {
+	?>
+	<div class="bg-burgundy/10 border border-burgundy/20 rounded-lg p-6">
+		<p class="text-burgundy">
+			<?php
+			printf(
+				/* translators: %s: Link to ACF options page */
+				esc_html__( 'Please set the Contact Form 7 Form ID in %s.', 'ecocltr' ),
+				'<a href="' . esc_url( admin_url( 'admin.php?page=business-information' ) ) . '" class="underline font-semibold">' . esc_html__( 'Business Info settings', 'ecocltr' ) . '</a>'
+			);
+			?>
+		</p>
+	</div>
+	<?php
+}

@@ -387,6 +387,53 @@ function ecocltr_phone_href( $phone ) {
 }
 
 /**
+ * Render an SVG icon from the resources/svg directory.
+ *
+ * Loads an SVG file by name and injects optional CSS classes.
+ * Icons are stored in resources/svg/{name}.svg and can be
+ * swapped by replacing the file.
+ *
+ * @since 1.0.0
+ *
+ * @param  string $name  Icon filename without extension.
+ * @param  string $class Optional. CSS classes to add to the SVG element. Default empty.
+ * @return string SVG markup or empty string if file not found.
+ */
+function ecocltr_icon( $name, $class = '' ) {
+	$file = get_template_directory() . '/resources/svg/' . $name . '.svg';
+
+	if ( ! file_exists( $file ) ) {
+		return '';
+	}
+
+	$svg = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
+	if ( $class ) {
+		$svg = str_replace( '<svg ', '<svg class="' . esc_attr( $class ) . '" ', $svg );
+	}
+
+	// Add aria-hidden for decorative icons.
+	if ( false === strpos( $svg, 'aria-' ) ) {
+		$svg = str_replace( '<svg ', '<svg aria-hidden="true" ', $svg );
+	}
+
+	return $svg;
+}
+
+/**
+ * Display an SVG icon from the resources/svg directory.
+ *
+ * @since 1.0.0
+ *
+ * @param  string $name  Icon filename without extension.
+ * @param  string $class Optional. CSS classes to add to the SVG element. Default empty.
+ * @return void
+ */
+function ecocltr_display_icon( $name, $class = '' ) {
+	echo ecocltr_icon( $name, $class ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
  * Get Static Forms API key from options.
  *
  * @since 1.0.0

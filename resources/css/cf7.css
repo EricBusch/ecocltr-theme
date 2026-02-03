@@ -1,0 +1,175 @@
+/**
+ * Contact Form 7 custom styles.
+ *
+ * Overrides default CF7 styling to match the EcoCultures theme.
+ *
+ * @package Ecocltr
+ * @since   1.0.0
+ */
+
+/* CF7 Form wrapper */
+.wpcf7 .wpcf7-form {
+	display: flex;
+	flex-direction: column;
+}
+
+/* CF7 Form groups - override default CF7 margins */
+.wpcf7 .wpcf7-form p {
+	margin: 0 !important;
+}
+
+/* CF7 Form controls wrapper */
+.wpcf7 .wpcf7-form .wpcf7-form-control-wrap {
+	display: block;
+	margin: 0 !important;
+}
+
+/* CF7 Labels */
+.wpcf7 .wpcf7-form label {
+	color: #1C1917;
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+/* Required asterisk */
+.wpcf7 .wpcf7-form .required {
+	color: #7F1B20;
+}
+
+/* Optional text */
+.wpcf7 .wpcf7-form .optional {
+	color: rgba(28, 25, 23, 0.6);
+	font-size: 0.75rem;
+	font-weight: 400;
+	margin-left: 0.25rem;
+}
+
+/* CF7 Input fields */
+.wpcf7 .wpcf7-form input[type="text"],
+.wpcf7 .wpcf7-form input[type="email"],
+.wpcf7 .wpcf7-form input[type="tel"],
+.wpcf7 .wpcf7-form textarea {
+	border: 1px solid rgba(28, 25, 23, 0.2);
+	border-radius: 0.5rem;
+	margin: 0;
+	padding: 0.75rem 1rem;
+	transition: box-shadow 0.2s;
+	width: 100%;
+}
+
+.wpcf7 .wpcf7-form input[type="text"]:focus,
+.wpcf7 .wpcf7-form input[type="email"]:focus,
+.wpcf7 .wpcf7-form input[type="tel"]:focus,
+.wpcf7 .wpcf7-form textarea:focus {
+	border-color: transparent;
+	box-shadow: 0 0 0 2px #7F1B20;
+	outline: none;
+}
+
+/* Textarea specific */
+.wpcf7 .wpcf7-form textarea {
+	min-height: 144px;
+	resize: vertical;
+}
+
+/* Desktop layout - make name, email, and phone fields 3/4 width */
+@media (min-width: 768px) {
+	.wpcf7 .wpcf7-form input[name="your-name"],
+	.wpcf7 .wpcf7-form input[name="your-email"],
+	.wpcf7 .wpcf7-form input[name="your-phone"] {
+		width: 75%;
+	}
+
+	/* Keep subject, textarea, and submit full width */
+	.wpcf7 .wpcf7-form input[name="your-subject"],
+	.wpcf7 .wpcf7-form textarea {
+		width: 100%;
+	}
+}
+
+/* CF7 Submit button */
+.wpcf7 .wpcf7-form input[type="submit"] {
+	background-color: #7F1B20;
+	border: none;
+	border-radius: 0.5rem;
+	color: #F5F5F4;
+	cursor: pointer;
+	font-weight: 600;
+	margin: 0;
+	padding: 1rem 1.5rem;
+	transition: background-color 0.2s;
+	width: 100%;
+}
+
+.wpcf7 .wpcf7-form input[type="submit"]:hover {
+	background-color: rgba(127, 27, 32, 0.9);
+}
+
+.wpcf7 .wpcf7-form input[type="submit"]:focus {
+	box-shadow: 0 0 0 2px #7F1B20, 0 0 0 4px rgba(127, 27, 32, 0.2);
+	outline: none;
+}
+
+/* CF7 Response messages */
+.wpcf7 .wpcf7-response-output {
+	border: none !important;
+	border-radius: 0.5rem;
+	margin: 0 0 1.5rem !important;
+	order: -1;
+	padding: 1rem 1.25rem;
+}
+
+/* Success message styling */
+.wpcf7 .wpcf7-response-output.ecocltr-success {
+	align-items: center;
+	background-color: rgba(178, 195, 152, 0.2);
+	border: 1px solid #B2C398 !important;
+	color: #404524;
+	display: flex !important;
+	font-weight: 500;
+	gap: 0.75rem;
+}
+
+.wpcf7 .wpcf7-response-output.ecocltr-success::before {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23404524'%3E%3Cpath fill-rule='evenodd' d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: '';
+	display: block;
+	flex-shrink: 0;
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+/* Validation error messages */
+.wpcf7 .wpcf7-response-output.ecocltr-error {
+	background-color: rgba(127, 27, 32, 0.1);
+	border: 1px solid rgba(127, 27, 32, 0.2) !important;
+	color: #7F1B20;
+}
+
+/* CF7 Validation errors */
+.wpcf7 .wpcf7-not-valid-tip {
+	color: #7F1B20;
+	display: block;
+	font-size: 0.875rem;
+	margin-top: 0.25rem;
+}
+
+/* CF7 Spinner */
+.wpcf7 .wpcf7-spinner {
+	margin: 0 !important;
+}
+
+/* Turnstile widget container */
+.wpcf7 .wpcf7-form .cf-turnstile {
+	margin: 0;
+}
+
+/* Screen reader text - element is a sibling of form, not inside it */
+.wpcf7 > .screen-reader-response {
+	left: -9999px;
+	position: absolute;
+}

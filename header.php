@@ -13,9 +13,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@700&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class( 'bg-light text-dark antialiased' ); ?>>
@@ -41,18 +38,14 @@
 					<div class="flex items-center gap-3 sm:gap-4">
 						<?php if ( $business_phone ) : ?>
 							<a href="tel:<?php echo esc_attr( ecocltr_phone_href( $business_phone ) ); ?>" class="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
-								<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-								</svg>
+								<?php ecocltr_display_icon( 'phone', 'w-4 h-4 flex-shrink-0' ); ?>
 								<span class="hidden sm:inline"><?php echo esc_html( $business_phone ); ?></span>
 							</a>
 						<?php endif; ?>
 
 						<?php if ( $business_email ) : ?>
 							<span class="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
-								<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-								</svg>
+								<?php ecocltr_display_icon( 'email', 'w-4 h-4 flex-shrink-0' ); ?>
 								<span class="hidden sm:inline">
 									<?php ecocltr_display_obfuscated_email( $business_email, '', true, '', '' ); ?>
 								</span>
@@ -65,25 +58,19 @@
 					<div class="flex items-center gap-3">
 						<?php if ( $social_facebook ) : ?>
 							<a href="<?php echo esc_url( $social_facebook ); ?>" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors" aria-label="<?php esc_attr_e( 'Facebook', 'ecocltr' ); ?>">
-								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-								</svg>
+								<?php ecocltr_display_icon( 'facebook', 'w-4 h-4' ); ?>
 							</a>
 						<?php endif; ?>
 
 						<?php if ( $social_instagram ) : ?>
 							<a href="<?php echo esc_url( $social_instagram ); ?>" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors" aria-label="<?php esc_attr_e( 'Instagram', 'ecocltr' ); ?>">
-								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-								</svg>
+								<?php ecocltr_display_icon( 'instagram', 'w-4 h-4' ); ?>
 							</a>
 						<?php endif; ?>
 
 						<?php if ( $social_houzz ) : ?>
 							<a href="<?php echo esc_url( $social_houzz ); ?>" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors" aria-label="<?php esc_attr_e( 'Houzz', 'ecocltr' ); ?>">
-								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 640 640">
-									<path d="M372 394.7L267.4 394.7L267.4 544L113.1 544L113.1 96L222.6 96L222.6 200.5L527.7 286.1L527.7 544L372 544L372 394.7z"/>
-								</svg>
+								<?php ecocltr_display_icon( 'houzz', 'w-4 h-4' ); ?>
 							</a>
 						<?php endif; ?>
 					</div>
@@ -111,9 +98,7 @@
 				<?php if ( has_nav_menu( 'primary' ) ) : ?>
 					<div class="md:hidden">
 						<button type="button" aria-label="<?php esc_attr_e( 'Toggle navigation', 'ecocltr' ); ?>" id="primary-menu-toggle">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-							</svg>
+							<?php ecocltr_display_icon( 'menu', 'size-6' ); ?>
 						</button>
 					</div>
 				<?php endif; ?>

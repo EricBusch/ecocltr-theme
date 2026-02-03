@@ -36,9 +36,7 @@ $why_choose    = ecocltr_get_field( 'about_why_choose', get_the_ID() );
 						<?php else : ?>
 							<!-- Placeholder -->
 							<div class="rounded-lg overflow-hidden shadow-lg bg-olive/10 aspect-[4/3] flex items-center justify-center">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-24 h-24 text-olive/30">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-								</svg>
+								<?php ecocltr_display_icon( 'user', 'w-24 h-24 text-olive/30' ); ?>
 							</div>
 						<?php endif; ?>
 					</div>
@@ -136,9 +134,7 @@ $why_choose    = ecocltr_get_field( 'about_why_choose', get_the_ID() );
 							<div class="flex items-start gap-3 bg-white rounded-lg p-5">
 								<div class="flex-shrink-0 mt-1">
 									<div class="w-6 h-6 bg-olive rounded-full flex items-center justify-center">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-white">
-											<path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
-										</svg>
+										<?php ecocltr_display_icon( 'check', 'w-4 h-4 text-white' ); ?>
 									</div>
 								</div>
 								<p class="text-dark font-medium flex-1">

@@ -34,9 +34,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 						<?php if ( $service_terms && ! is_wp_error( $service_terms ) ) : ?>
 							<p class="text-sage text-sm uppercase tracking-wider mb-4">
 								<a href="<?php echo esc_url( get_term_link( $service_terms[0] ) ); ?>" class="inline-flex items-center gap-2 hover:text-white transition-colors">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-3 h-3 text-white" fill="currentColor">
-										<path d="M139.3 539.3L347.3 331.3C353.5 325.1 353.5 314.9 347.3 308.7L139.3 100.7C133.1 94.5 122.9 94.5 116.7 100.7C110.5 106.9 110.5 117.1 116.7 123.3L313.4 320L116.7 516.7C110.5 522.9 110.5 533.1 116.7 539.3C122.9 545.5 133.1 545.5 139.3 539.3zM331.3 539.3L539.3 331.3C545.5 325.1 545.5 314.9 539.3 308.7L331.3 100.7C325.1 94.5 314.9 94.5 308.7 100.7C302.5 106.9 302.5 117.1 308.7 123.3L505.4 320L308.7 516.7C302.5 522.9 302.5 533.1 308.7 539.3C314.9 545.5 325.1 545.5 331.3 539.3z"/>
-									</svg>
+									<?php ecocltr_display_icon( 'chevron-double-right', 'w-3 h-3 text-white' ); ?>
 									<?php echo esc_html( $service_terms[0]->name ); ?>
 								</a>
 							</p>
@@ -141,9 +139,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 
 									<a href="<?php echo esc_url( get_post_type_archive_link( 'project' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors">
 										<?php esc_html_e( 'View All Projects', 'ecocltr' ); ?>
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-										</svg>
+										<?php ecocltr_display_icon( 'arrow-right', 'w-4 h-4 ml-1' ); ?>
 									</a>
 								</div>
 							<?php endif; ?>
@@ -188,9 +184,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 
 									<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-flex items-center mt-4 text-burgundy font-medium text-sm hover:text-burgundy-800 transition-colors">
 										<?php esc_html_e( 'View All Services', 'ecocltr' ); ?>
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-										</svg>
+										<?php ecocltr_display_icon( 'arrow-right', 'w-4 h-4 ml-1' ); ?>
 									</a>
 								</div>
 							<?php endif; ?>
@@ -265,9 +259,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 
 									<!-- Arrow Icon -->
 									<div class="flex-shrink-0">
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-sage group-hover:text-olive group-hover:translate-x-1 transition-all">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-										</svg>
+										<?php ecocltr_display_icon( 'arrow-right', 'w-5 h-5 text-sage group-hover:text-olive group-hover:translate-x-1 transition-all' ); ?>
 									</div>
 								</a>
 							</article>

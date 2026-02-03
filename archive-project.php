@@ -40,15 +40,11 @@ $random_testimonial = ecocltr_get_random_testimonial();
 					<div class="flex flex-wrap gap-4">
 						<a href="#projects-grid" class="inline-flex items-center gap-2 bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'View Projects', 'ecocltr' ); ?>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-								<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-							</svg>
+							<?php ecocltr_display_icon( 'chevron-down', 'w-4 h-4' ); ?>
 						</a>
 						<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/50 hover:border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'Get Started', 'ecocltr' ); ?>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-							</svg>
+							<?php ecocltr_display_icon( 'arrow-right', 'w-4 h-4' ); ?>
 						</a>
 					</div>
 				</div>

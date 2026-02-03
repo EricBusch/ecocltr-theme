@@ -177,6 +177,20 @@ function ecocltr_register_acf_field_groups()
                     'instructions'  => __('Text for the CTA button.', 'ecocltr'),
                     'default_value' => __('Get in Touch', 'ecocltr'),
                 ),
+                array(
+                    'key'   => 'field_integrations_tab',
+                    'label' => __('Integrations', 'ecocltr'),
+                    'type'  => 'tab',
+                ),
+                array(
+                    'key'           => 'field_cf7_form_id',
+                    'label'         => __('Contact Form 7 Form ID', 'ecocltr'),
+                    'name'          => 'cf7_form_id',
+                    'type'          => 'number',
+                    'instructions'  => __('The ID of the Contact Form 7 form to display on the contact page. Find this in Contact > Contact Forms.', 'ecocltr'),
+                    'default_value' => 30,
+                    'min'           => 1,
+                ),
         ),
         'location' => array(
                 array(
