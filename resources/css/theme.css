@@ -45,6 +45,7 @@
 
     --color-light: #F5F5F4;
     --color-dark: #1C1917;
+    --color-mist: #E6EAE0;
 
     /* Map to WordPress preset colors */
     --color-primary: var(--wp--preset--color--burgundy, #7F1B20);

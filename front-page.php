@@ -133,7 +133,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 
 								<!-- Content -->
 								<div class="<?php echo $is_even ? '' : 'lg:col-start-1 lg:row-start-1'; ?> <?php echo $is_even ? 'lg:pl-4' : 'lg:pl-4 lg:pr-4'; ?> py-4">
-									<span class="inline-block text-xs uppercase tracking-widest text-olive/70 mb-3">
+									<span class="inline-block text-xs uppercase tracking-widest text-olive mb-3">
 										<?php
 										printf(
 											/* translators: %d: number of services */

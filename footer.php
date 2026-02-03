@@ -42,7 +42,7 @@
 					</a>
 
 					<?php if ( $footer_description ) : ?>
-						<p class="text-sage/80 text-sm mb-6 leading-relaxed">
+						<p class="text-mist/80 text-sm mb-6 leading-relaxed">
 							<?php echo esc_html( $footer_description ); ?>
 						</p>
 					<?php endif; ?>
@@ -88,7 +88,7 @@
 								'walker'         => new class() extends Walker_Nav_Menu {
 									function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 										$output .= '<li>';
-										$output .= '<a href="' . esc_url( $item->url ) . '" class="text-sage/80 hover:text-white transition-colors inline-block">';
+										$output .= '<a href="' . esc_url( $item->url ) . '" class="text-mist/80 hover:text-white transition-colors inline-block">';
 										$output .= esc_html( $item->title );
 										$output .= '</a>';
 									}
@@ -112,7 +112,7 @@
 						<?php if ( $business_phone ) : ?>
 							<li class="flex items-start gap-3">
 								<?php ecocltr_display_icon( 'phone', 'w-5 h-5 text-sage flex-shrink-0 mt-0.5' ); ?>
-								<a href="tel:<?php echo esc_attr( ecocltr_phone_href( $business_phone ) ); ?>" class="text-sage/80 hover:text-white transition-colors">
+								<a href="tel:<?php echo esc_attr( ecocltr_phone_href( $business_phone ) ); ?>" class="text-mist/80 hover:text-white transition-colors">
 									<?php echo esc_html( $business_phone ); ?>
 								</a>
 							</li>
@@ -121,14 +121,14 @@
 						<?php if ( $business_email ) : ?>
 							<li class="flex items-start gap-3">
 								<?php ecocltr_display_icon( 'email', 'w-5 h-5 text-sage flex-shrink-0 mt-0.5' ); ?>
-								<?php ecocltr_display_obfuscated_email( $business_email, '', true, '', 'text-sage/80 hover:text-white transition-colors' ); ?>
+								<?php ecocltr_display_obfuscated_email( $business_email, '', true, '', 'text-mist/80 hover:text-white transition-colors' ); ?>
 							</li>
 						<?php endif; ?>
 
 						<?php if ( $business_address ) : ?>
 							<li class="flex items-start gap-3">
 								<?php ecocltr_display_icon( 'map-pin', 'w-5 h-5 text-sage flex-shrink-0 mt-0.5' ); ?>
-								<address class="text-sage/80 not-italic">
+								<address class="text-mist/80 not-italic">
 									<a href="<?php echo esc_url( 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $business_address ) ); ?>" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
 										<?php echo nl2br( esc_html( $business_address ) ); ?>
 									</a>
@@ -145,13 +145,13 @@
 					</h3>
 
 					<?php if ( $service_areas_description ) : ?>
-						<p class="text-sage/80 text-sm leading-relaxed mb-4">
+						<p class="text-mist/80 text-sm leading-relaxed mb-4">
 							<?php echo esc_html( $service_areas_description ); ?>
 						</p>
 					<?php endif; ?>
 
 					<?php if ( $service_areas_list ) : ?>
-						<ul class="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-sage/80">
+						<ul class="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-mist/80">
 							<?php
 							$areas = array_filter( array_map( 'trim', explode( "\n", $service_areas_list ) ) );
 							foreach ( $areas as $area ) :
@@ -165,7 +165,7 @@
 
 			<!-- Bottom Bar: Copyright & Credits -->
 			<div class="border-t border-white/10 pt-8">
-				<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sage/60">
+				<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-mist/80">
 					<div>
 						&copy;
 						<?php
