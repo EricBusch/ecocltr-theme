@@ -50,12 +50,14 @@ $term = get_queried_object();
 									the_post_thumbnail(
 										'large',
 										array(
-											'class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500',
+											'class' => 'w-full h-full object-cover saturate-75 group-hover:saturate-100 group-hover:scale-105 transition-all duration-500',
 											'alt'   => esc_attr( get_the_title() ),
 										)
 									);
 									?>
 								</div>
+								<!-- Fresh color overlay -->
+								<div class="absolute inset-0 bg-sage/20 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
 								<!-- Gradient Overlay -->
 								<div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
 							<?php else : ?>
@@ -66,7 +68,7 @@ $term = get_queried_object();
 
 							<!-- Content Overlay -->
 							<a href="<?php the_permalink(); ?>" class="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-white">
-								<h3 class="text-pretty text-xl md:text-2xl font-bold mb-3 group-hover:text-sage transition-colors">
+								<h3 class="text-pretty text-xl md:text-2xl font-bold mb-3">
 									<?php the_title(); ?>
 								</h3>
 

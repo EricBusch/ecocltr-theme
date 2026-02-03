@@ -102,7 +102,7 @@ $why_choose    = ecocltr_get_field( 'about_why_choose', get_the_ID() );
 			<div class="container mx-auto">
 				<div class="text-center mb-12">
 					<p class="text-olive text-sm uppercase tracking-widest font-semibold mb-3">
-						<?php esc_html_e( 'Our Philosophy', 'ecocltr' ); ?>
+						<?php esc_html_e( 'How We Work', 'ecocltr' ); ?>
 					</p>
 					<h2 class="text-pretty text-3xl md:text-4xl font-bold text-dark mb-4">
 						<?php esc_html_e( 'Our Approach', 'ecocltr' ); ?>

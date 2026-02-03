@@ -226,13 +226,21 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 
 	<?php if ( $featured_services && is_array( $featured_services ) ) : ?>
 		<!-- Featured Services Section -->
-		<section class="py-16 md:py-24 bg-white">
+		<section class="py-20 md:py-32 bg-gradient-to-b from-white to-sage/5">
 			<div class="container mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold text-dark mb-12 text-center">
-					<?php esc_html_e( 'Our Services', 'ecocltr' ); ?>
-				</h2>
+				<!-- Section Header -->
+				<div class="max-w-3xl mx-auto text-center mb-16">
+					<span class="inline-block text-sm uppercase tracking-widest text-burgundy font-semibold mb-4">
+						<?php esc_html_e( 'What We Offer', 'ecocltr' ); ?>
+					</span>
+					<h2 class="text-pretty text-4xl md:text-5xl font-bold text-dark mb-6">
+						<?php esc_html_e( 'Our Services', 'ecocltr' ); ?>
+					</h2>
+					<div class="w-24 h-1 bg-gradient-to-r from-burgundy via-sage to-olive mx-auto rounded-full"></div>
+				</div>
 
-				<div class="grid md:grid-cols-2 lg:grid-cols-<?php echo esc_attr( min( count( $featured_services ), 4 ) ); ?> gap-8">
+				<!-- Services Grid -->
+				<div class="grid md:grid-cols-2 lg:grid-cols-<?php echo esc_attr( min( count( $featured_services ), 3 ) ); ?> gap-8 lg:gap-10 mb-16">
 					<?php
 					foreach ( $featured_services as $service ) :
 						$GLOBALS['post'] = $service; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
@@ -243,9 +251,13 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 					?>
 				</div>
 
-				<div class="text-center mt-12">
-					<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="inline-block border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors">
-						<?php esc_html_e( 'View All Services', 'ecocltr' ); ?>
+				<!-- CTA -->
+				<div class="text-center">
+					<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="group inline-flex items-center border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:shadow-lg">
+						<span><?php esc_html_e( 'View All Services', 'ecocltr' ); ?></span>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+						</svg>
 					</a>
 				</div>
 			</div>
@@ -254,7 +266,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 
 	<?php if ( $recent_projects ) : ?>
 		<!-- Recent Projects Section -->
-		<section class="py-16 md:py-24">
+		<section class="py-16 md:py-24 bg-white">
 			<div class="container mx-auto">
 				<h2 class="text-3xl md:text-4xl font-bold text-dark mb-12 text-center">
 					<?php esc_html_e( 'Recent Projects', 'ecocltr' ); ?>
@@ -279,6 +291,13 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 			</div>
 		</section>
 	<?php endif; ?>
+
+	<!-- Decorative Divider -->
+	<div class="bg-white">
+		<div class="container mx-auto">
+			<hr class="border-0 h-px bg-gradient-to-r from-transparent via-sage/30 to-transparent">
+		</div>
+	</div>
 
 	<!-- Testimonial Section -->
 	<?php
