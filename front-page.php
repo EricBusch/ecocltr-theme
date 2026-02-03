@@ -26,7 +26,7 @@ $recent_projects = ecocltr_get_recent_projects( 4 );
 $site_name    = get_bloginfo( 'name' );
 $site_tagline = get_bloginfo( 'description' );
 
-// Hero video URL - uses ACF field or falls back to default.
+// Hero video URL - uses the ACF field or falls back to default.
 $hero_video_id  = ecocltr_get_field( 'hero_video', false, 44 );
 $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_video_id ) : $hero_video_id;
 ?>
