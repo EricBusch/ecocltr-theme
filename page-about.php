@@ -10,8 +10,6 @@
 get_header();
 
 // Get About page fields.
-$hero_tagline  = ecocltr_get_field( 'about_hero_tagline', get_the_ID(), __( 'Bringing nature back to your landscape, one native plant at a time.', 'ecocltr' ) );
-$hero_image    = ecocltr_get_field( 'about_hero_image', get_the_ID() );
 $owner_photo   = ecocltr_get_field( 'about_owner_photo', get_the_ID() );
 $owner_name    = ecocltr_get_field( 'about_owner_name', get_the_ID(), __( 'EcoCultures', 'ecocltr' ) );
 $owner_bio     = ecocltr_get_field( 'about_owner_bio', get_the_ID() );
@@ -20,34 +18,6 @@ $why_choose    = ecocltr_get_field( 'about_why_choose', get_the_ID() );
 ?>
 
 <div id="primary" class="content-area">
-	<!-- Hero Section -->
-	<header class="relative bg-olive text-light py-20 md:py-32 overflow-hidden">
-		<?php if ( $hero_image ) : ?>
-			<div class="absolute inset-0">
-				<img
-					src="<?php echo esc_url( $hero_image['url'] ); ?>"
-					alt="<?php echo esc_attr( $hero_image['alt'] ?: get_the_title() ); ?>"
-					class="w-full h-full object-cover opacity-30"
-				>
-				<div class="absolute inset-0 bg-gradient-to-br from-olive/80 to-olive/60"></div>
-			</div>
-		<?php else : ?>
-			<!-- Decorative shapes if no image -->
-			<div class="absolute inset-0 bg-gradient-to-br from-olive via-olive to-olive-900 opacity-60"></div>
-			<div class="absolute top-10 right-10 w-32 h-32 bg-sage/20 rounded-full blur-3xl"></div>
-			<div class="absolute bottom-10 left-10 w-40 h-40 bg-burgundy/10 rounded-full blur-3xl"></div>
-		<?php endif; ?>
-
-		<div class="container mx-auto text-center relative z-10">
-			<h1 class="text-pretty text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-				<?php the_title(); ?>
-			</h1>
-			<p class="text-balance text-xl md:text-2xl text-sage/90 max-w-3xl mx-auto leading-relaxed">
-				<?php echo esc_html( $hero_tagline ); ?>
-			</p>
-		</div>
-	</header>
-
 	<!-- Meet the Team Section -->
 	<?php if ( $owner_photo || $owner_bio ) : ?>
 		<section class="py-16 md:py-24 bg-sage/20">

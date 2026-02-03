@@ -172,3 +172,22 @@ function ecocltr_modify_project_archive_query( $query )
     }
 }
 add_action('pre_get_posts', 'ecocltr_modify_project_archive_query');
+
+/**
+ * Add font-serif and text size classes to primary menu items.
+ *
+ * @since 1.0.0
+ *
+ * @param array    $atts  The HTML attributes applied to the menu item's <a> element.
+ * @param WP_Post  $item  The current menu item.
+ * @param stdClass $args  An object of wp_nav_menu() arguments.
+ * @return array Modified attributes.
+ */
+function ecocltr_add_menu_link_class( $atts, $item, $args )
+{
+	if ( 'primary' === $args->theme_location ) {
+		$atts['class'] = isset( $atts['class'] ) ? $atts['class'] . ' font-serif text-lg' : 'font-serif text-lg';
+	}
+	return $atts;
+}
+add_filter('nav_menu_link_attributes', 'ecocltr_add_menu_link_class', 10, 3);

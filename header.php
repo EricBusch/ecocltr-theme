@@ -117,8 +117,8 @@
 				<?php endif; ?>
 			</div>
 
-			<div id="primary-navigation" class="hidden md:flex md:bg-transparent gap-6 items-center border border-light md:border-none rounded-xl p-4 md:p-0">
-				<nav>
+			<div id="primary-navigation" class="hidden md:flex md:bg-transparent md:flex-1 md:justify-center items-center border border-light md:border-none rounded-xl p-4 md:p-0">
+				<nav class="md:flex-1 md:flex md:justify-center">
 					<?php if ( current_user_can( 'administrator' ) && ! has_nav_menu( 'primary' ) ) : ?>
 						<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="text-sm text-zinc-600"><?php esc_html_e( 'Edit Menus', 'ecocltr' ); ?></a>
 					<?php else : ?>
@@ -137,7 +137,7 @@
 					<?php endif; ?>
 				</nav>
 
-				<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block mt-4 md:mt-0 bg-burgundy hover:bg-burgundy-800 text-white font-medium px-5 py-2 rounded-lg transition-colors">
+				<a href="<?php echo esc_url( ecocltr_get_contact_url() ); ?>" class="inline-block mt-4 md:mt-0 md:ml-6 bg-burgundy hover:bg-burgundy-800 text-white font-medium px-5 py-2 rounded-lg transition-colors">
 					<?php esc_html_e( 'Contact', 'ecocltr' ); ?>
 				</a>
 			</div>
