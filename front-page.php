@@ -300,22 +300,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 	</div>
 
 	<!-- Testimonial Section -->
-	<?php
-	$testimonial = ecocltr_get_random_testimonial();
-	if ( $testimonial ) :
-		?>
-		<section class="py-16 md:py-24 bg-white">
-			<div class="container mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold text-dark mb-12 text-center">
-					<?php esc_html_e( 'What Our Clients Say', 'ecocltr' ); ?>
-				</h2>
-
-				<div class="max-w-3xl mx-auto">
-					<?php ecocltr_display_testimonial( $testimonial->ID ); ?>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
+	<?php get_template_part( 'template-parts/section', 'testimonial' ); ?>
 
 	<?php if ( $service_area_heading || $service_area_text ) : ?>
 		<!-- Service Area Section -->

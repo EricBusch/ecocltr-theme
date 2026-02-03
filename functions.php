@@ -33,11 +33,6 @@ require_once __DIR__ . '/inc/acf/field-groups.php';
 require_once __DIR__ . '/inc/helpers/template-functions.php';
 
 /**
- * Include form handler.
- */
-require_once __DIR__ . '/inc/form-handler.php';
-
-/**
  * Include Contact Form 7 configuration.
  */
 require_once __DIR__ . '/inc/contact-form-7-config.php';
@@ -200,12 +195,19 @@ add_filter('nav_menu_link_attributes', 'ecocltr_add_menu_link_class', 10, 3);
 /**
  * Configure SMTP mailer for local Herd mail server.
  *
+ * Only active in local/development environments to route email
+ * through the Herd mail server for testing.
+ *
  * @since 1.0.0
  *
  * @param PHPMailer $phpmailer PHPMailer instance.
  * @return void
  */
-function herd_mailer( $phpmailer ) {
+function ecocltr_herd_mailer( $phpmailer ) {
+	if ( ! ecocltr_is_local_environment() ) {
+		return;
+	}
+
 	$phpmailer->isSMTP();
 	$phpmailer->Host        = '127.0.0.1';
 	$phpmailer->SMTPAuth    = true;
@@ -214,6 +216,5 @@ function herd_mailer( $phpmailer ) {
 	$phpmailer->Password    = '';
 	$phpmailer->SMTPSecure  = '';
 	$phpmailer->SMTPAutoTLS = false;
-
 }
-add_action( 'phpmailer_init', 'herd_mailer' );
+add_action( 'phpmailer_init', 'ecocltr_herd_mailer' );

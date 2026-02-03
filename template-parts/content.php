@@ -1,3 +1,12 @@
+<?php
+/**
+ * Template part for displaying post content in archive listings.
+ *
+ * @package Ecocltr
+ * @since   1.0.0
+ */
+
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="relative pt-16 before:absolute before:top-0 before:left-0 before:h-px before:w-6 before:bg-zinc-950 after:absolute after:top-0 after:right-0 after:left-8 after:h-px after:bg-zinc-950/10">
 		<div class="relative lg:-mx-4 lg:flex lg:justify-end">

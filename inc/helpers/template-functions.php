@@ -372,6 +372,21 @@ function ecocltr_display_obfuscated_email( $email, $text = '', $link = true, $ti
 }
 
 /**
+ * Sanitize a phone number for use in a tel: href attribute.
+ *
+ * Strips all characters except digits and the plus sign,
+ * producing a valid tel: URI value.
+ *
+ * @since 1.0.0
+ *
+ * @param  string $phone Raw phone number string.
+ * @return string Sanitized phone number containing only digits and +.
+ */
+function ecocltr_phone_href( $phone ) {
+    return preg_replace( '/[^0-9+]/', '', $phone );
+}
+
+/**
  * Get Static Forms API key from options.
  *
  * @since 1.0.0

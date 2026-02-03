@@ -15,18 +15,18 @@
 
 	<footer id="colophon" class="bg-dark text-light" role="contentinfo">
 		<?php
-		// Get business information from ACF.
-		$business_name              = get_field( 'business_name', 'option' );
-		$business_phone             = get_field( 'business_phone', 'option' );
-		$business_email             = get_field( 'business_email', 'option' );
-		$business_address           = get_field( 'business_address', 'option' );
-		$social_facebook            = get_field( 'social_facebook', 'option' );
-		$social_instagram           = get_field( 'social_instagram', 'option' );
-		$social_houzz               = get_field( 'social_houzz', 'option' );
-		$footer_description         = get_field( 'footer_description', 'option' );
-		$service_areas_description  = get_field( 'service_areas_description', 'option' );
-		$service_areas_list         = get_field( 'service_areas_list', 'option' );
-		$established_year           = get_field( 'established_year', 'option' );
+		// Get business information from ACF options.
+		$business_name              = ecocltr_get_business_info( 'business_name' );
+		$business_phone             = ecocltr_get_business_info( 'business_phone' );
+		$business_email             = ecocltr_get_business_info( 'business_email' );
+		$business_address           = ecocltr_get_business_info( 'business_address' );
+		$social_facebook            = ecocltr_get_business_info( 'social_facebook' );
+		$social_instagram           = ecocltr_get_business_info( 'social_instagram' );
+		$social_houzz               = ecocltr_get_business_info( 'social_houzz' );
+		$footer_description         = ecocltr_get_business_info( 'footer_description' );
+		$service_areas_description  = ecocltr_get_business_info( 'service_areas_description' );
+		$service_areas_list         = ecocltr_get_business_info( 'service_areas_list' );
+		$established_year           = ecocltr_get_business_info( 'established_year' );
 		?>
 
 		<div class="container mx-auto py-12 md:py-16">
@@ -120,7 +120,7 @@
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-sage flex-shrink-0 mt-0.5">
 									<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
 								</svg>
-								<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $business_phone ) ); ?>" class="text-sage/80 hover:text-white transition-colors">
+								<a href="tel:<?php echo esc_attr( ecocltr_phone_href( $business_phone ) ); ?>" class="text-sage/80 hover:text-white transition-colors">
 									<?php echo esc_html( $business_phone ); ?>
 								</a>
 							</li>
