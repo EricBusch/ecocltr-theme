@@ -115,9 +115,9 @@ function ecocltr_enqueue_lightbox()
     if (is_singular('project') ) {
         wp_enqueue_script(
             'fslightbox',
-            'https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.min.js',
+            get_template_directory_uri() . '/resources/js/fslightbox.js',
             array(),
-            '3.4.1',
+            '3.8.4',
             true
         );
     }
