@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<div class="container my-8 mx-auto">
+<div class="container my-8 mx-auto pb-16 md:pb-24">
 	<?php if ( have_posts() ) : ?>
 		<?php
 		while ( have_posts() ) :

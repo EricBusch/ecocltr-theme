@@ -253,7 +253,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 
 									<!-- Service Content -->
 									<div class="flex-1 min-w-0">
-										<h3 class="text-lg font-semibold text-dark group-hover:text-olive transition-colors mb-1">
+										<h3 class="text-lg font-semibold text-dark group-hover:text-olive transition-colors mb-1 leading-tight">
 											<?php echo esc_html( get_the_title( $service->ID ) ); ?>
 										</h3>
 										<?php if ( $excerpt ) : ?>

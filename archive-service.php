@@ -128,7 +128,7 @@ $random_testimonial = ecocltr_get_random_testimonial();
 									<!-- Category Image -->
 									<?php if ( $thumbnail_url ) : ?>
 										<div class="w-full">
-											<div class="aspect-[4/3] md:aspect-square w-full h-full">
+											<div class="aspect-[4/3] w-full h-full">
 												<img
 													src="<?php echo esc_url( $thumbnail_url ); ?>"
 													alt="<?php echo esc_attr( $category->name ); ?>"

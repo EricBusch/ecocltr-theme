@@ -34,51 +34,6 @@ function ecocltr_register_acf_field_groups()
         );
     }
 
-
-    // Footer CTA Settings.
-    acf_add_local_field_group(
-        array(
-        'key'      => 'group_footer_cta_settings',
-        'title'    => __('Footer Call to Action', 'ecocltr'),
-        'fields'   => array(
-                array(
-                    'key'           => 'field_footer_cta_heading',
-                    'label'         => __('Heading', 'ecocltr'),
-                    'name'          => 'footer_cta_heading',
-                    'type'          => 'text',
-                    'instructions'  => __('Main heading for the footer CTA section.', 'ecocltr'),
-                    'default_value' => __('Ready to Transform Your Landscape?', 'ecocltr'),
-                ),
-                array(
-                    'key'           => 'field_footer_cta_description',
-                    'label'         => __('Description', 'ecocltr'),
-                    'name'          => 'footer_cta_description',
-                    'type'          => 'textarea',
-                    'instructions'  => __('Short description below the heading.', 'ecocltr'),
-                    'rows'          => 2,
-                    'default_value' => __('Let\'s discuss how we can bring your vision to life with sustainable, nature-forward landscaping.', 'ecocltr'),
-                ),
-                array(
-                    'key'           => 'field_footer_cta_button_text',
-                    'label'         => __('Button Text', 'ecocltr'),
-                    'name'          => 'footer_cta_button_text',
-                    'type'          => 'text',
-                    'instructions'  => __('Text for the CTA button.', 'ecocltr'),
-                    'default_value' => __('Get in Touch', 'ecocltr'),
-                ),
-        ),
-        'location' => array(
-                array(
-                    array(
-                        'param'    => 'options_page',
-                        'operator' => '==',
-                        'value'    => 'business-information',
-                    ),
-                ),
-        ),
-        )
-    );
-
     // Business Information Settings.
     acf_add_local_field_group(
         array(
@@ -193,26 +148,34 @@ function ecocltr_register_acf_field_groups()
                     'max'           => 2100,
                 ),
                 array(
-                    'key'   => 'field_form_settings_tab',
-                    'label' => __('Form Settings', 'ecocltr'),
+                    'key'   => 'field_footer_cta_tab',
+                    'label' => __('Footer Call to Action', 'ecocltr'),
                     'type'  => 'tab',
                 ),
                 array(
-                    'key'          => 'field_staticforms_api_key',
-                    'label'        => __('Static Forms API Key', 'ecocltr'),
-                    'name'         => 'staticforms_api_key',
-                    'type'         => 'text',
-                    'instructions' => __('Enter your Static Forms API key. Get your API key at https://www.staticforms.dev/', 'ecocltr'),
-                    'required'     => 1,
-                    'placeholder'  => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+                    'key'           => 'field_footer_cta_heading',
+                    'label'         => __('Heading', 'ecocltr'),
+                    'name'          => 'footer_cta_heading',
+                    'type'          => 'text',
+                    'instructions'  => __('Main heading for the footer call-to-action section.', 'ecocltr'),
+                    'default_value' => __('Ready to Transform Your Landscape?', 'ecocltr'),
                 ),
                 array(
-                    'key'          => 'field_recaptcha_site_key',
-                    'label'        => __('reCAPTCHA Site Key', 'ecocltr'),
-                    'name'         => 'recaptcha_site_key',
-                    'type'         => 'text',
-                    'instructions' => __('Enter your Google reCAPTCHA v2 Site Key. Get your keys at https://www.google.com/recaptcha/admin. Add your Secret Key to Static Forms dashboard CAPTCHA settings.', 'ecocltr'),
-                    'placeholder'  => '6Lc...',
+                    'key'           => 'field_footer_cta_description',
+                    'label'         => __('Description', 'ecocltr'),
+                    'name'          => 'footer_cta_description',
+                    'type'          => 'textarea',
+                    'instructions'  => __('Short description below the heading.', 'ecocltr'),
+                    'rows'          => 2,
+                    'default_value' => __('Let\'s discuss how we can bring your vision to life with sustainable, nature-forward landscaping.', 'ecocltr'),
+                ),
+                array(
+                    'key'           => 'field_footer_cta_button_text',
+                    'label'         => __('Button Text', 'ecocltr'),
+                    'name'          => 'footer_cta_button_text',
+                    'type'          => 'text',
+                    'instructions'  => __('Text for the CTA button.', 'ecocltr'),
+                    'default_value' => __('Get in Touch', 'ecocltr'),
                 ),
         ),
         'location' => array(

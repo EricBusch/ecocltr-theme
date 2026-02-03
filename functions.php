@@ -38,6 +38,11 @@ require_once __DIR__ . '/inc/helpers/template-functions.php';
 require_once __DIR__ . '/inc/form-handler.php';
 
 /**
+ * Include Contact Form 7 configuration.
+ */
+require_once __DIR__ . '/inc/contact-form-7-config.php';
+
+/**
  * Initialize the theme.
  *
  * @since 1.0.0

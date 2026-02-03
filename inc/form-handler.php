@@ -2,15 +2,21 @@
 /**
  * Contact form handler with ALTCHA validation.
  *
+ * DEPRECATED: This file is no longer used. Contact forms now use Contact Form 7.
+ * Keeping this file for reference only.
+ *
  * @package Ecocltr
  * @since   1.0.0
+ * @deprecated 1.0.0 Use Contact Form 7 instead.
  */
 
-/**
- * Handle contact form submission.
+/*
+ * Old StaticForms handler - no longer in use.
  *
- * @return void
- */
+ * This code is commented out as the site now uses Contact Form 7.
+ * Kept for reference only.
+ *
+
 function ecocltr_handle_contact_form()
 {
     // Check if this is a contact form submission.
@@ -84,3 +90,4 @@ function ecocltr_handle_contact_form()
 }
 add_action('admin_post_nopriv_ecocltr_contact', 'ecocltr_handle_contact_form');
 add_action('admin_post_ecocltr_contact', 'ecocltr_handle_contact_form');
+*/

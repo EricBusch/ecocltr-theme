@@ -106,7 +106,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 				);
 				?>
 
-				<div class="space-y-16 md:space-y-20">
+				<div class="space-y-8 md:space-y-20">
 					<?php foreach ( $service_categories as $category ) :
 						$category_image = get_field( 'featured_image', 'service_category_' . $category->term_id );
 						$category_link  = get_term_link( $category );
@@ -172,7 +172,7 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 
 									if ( $category_services ) :
 										$service_count = count( $category_services );
-										$list_classes  = $service_count > 3 ? 'grid grid-cols-2 gap-x-4 gap-y-1.5 mb-6' : 'space-y-1.5 mb-6';
+										$list_classes  = $service_count > 3 ? 'grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 mb-6' : 'space-y-1.5 mb-6';
 										?>
 										<ul class="<?php echo esc_attr( $list_classes ); ?>">
 											<?php foreach ( $category_services as $service ) : ?>

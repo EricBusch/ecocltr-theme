@@ -125,7 +125,7 @@ $term = get_queried_object();
 		<section class="py-16 md:py-24 bg-white">
 			<div class="container mx-auto">
 				<h2 class="text-2xl md:text-3xl font-bold text-dark mb-8 text-center">
-					<?php esc_html_e( 'Other Service Categories', 'ecocltr' ); ?>
+					<?php esc_html_e( 'Other Services', 'ecocltr' ); ?>
 				</h2>
 
 				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
