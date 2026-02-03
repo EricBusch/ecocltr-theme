@@ -24,9 +24,9 @@ $map_image     = ecocltr_get_field('contact_map_image');
         <div class="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-sage/20"></div>
 
         <div class="container mx-auto px-4 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 py-16 md:py-24">
+            <div class="grid lg:grid-cols-2 items-start gap-4 lg:gap-20 py-10 md:py-14 lg:py-20">
                 <!-- Contact Information -->
-                <div class="space-y-10 px-4 md:px-8 lg:pr-12">
+                <div class="space-y-8 lg:space-y-10 px-4 md:px-8 lg:pr-12">
                     <div>
                         <h1 class="text-4xl md:text-5xl font-bold text-dark mb-6 text-pretty">
                             <?php the_title(); ?>
@@ -99,7 +99,7 @@ $map_image     = ecocltr_get_field('contact_map_image');
                         $quote       = get_field('testimonial_quote', $testimonial->ID);
                         $client_name = get_field('testimonial_client_name', $testimonial->ID);
                         ?>
-                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/40">
+                        <div class="hidden lg:block bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/40">
                             <blockquote class="text-dark/70 text-lg mb-4 leading-relaxed italic">
                                 "<?php echo esc_html($quote); ?>"
                             </blockquote>

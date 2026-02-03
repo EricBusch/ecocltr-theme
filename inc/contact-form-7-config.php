@@ -82,6 +82,21 @@ function ecocltr_cf7_custom_styles() {
 			min-height: 144px;
 		}
 
+		/* Desktop layout - make name, email, and phone fields 3/4 width */
+		@media (min-width: 768px) {
+			.wpcf7 .wpcf7-form input[name="your-name"],
+			.wpcf7 .wpcf7-form input[name="your-email"],
+			.wpcf7 .wpcf7-form input[name="your-phone"] {
+				width: 75%;
+			}
+
+			/* Keep subject, textarea, and submit full width */
+			.wpcf7 .wpcf7-form input[name="your-subject"],
+			.wpcf7 .wpcf7-form textarea {
+				width: 100%;
+			}
+		}
+
 		/* CF7 Submit button */
 		.wpcf7 .wpcf7-form input[type="submit"] {
 			width: 100%;
