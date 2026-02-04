@@ -287,7 +287,8 @@ function ecocltr_get_related_services_by_category( $service_id, $count = 3 )
                     'terms'    => $term_ids,
                 ),
         ),
-        'orderby'        => 'rand',
+        'orderby'        => 'menu_order title',
+        'order'          => 'ASC',
         )
     );
 }

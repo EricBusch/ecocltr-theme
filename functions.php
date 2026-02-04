@@ -191,6 +191,12 @@ function ecocltr_modify_project_archive_query( $query )
         $query->set('orderby', 'meta_value');
         $query->set('order', 'DESC');
     }
+
+    // Modify service category taxonomy archives to use menu_order + title ordering.
+    if (! is_admin() && $query->is_main_query() && is_tax('service_category') ) {
+        $query->set('orderby', 'menu_order title');
+        $query->set('order', 'ASC');
+    }
 }
 add_action('pre_get_posts', 'ecocltr_modify_project_archive_query');
 
