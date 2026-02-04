@@ -57,7 +57,7 @@ function ecocltr_register_service_category_taxonomy() {
 		'rest_base'          => 'service_category',
 	);
 
-	register_taxonomy( 'service_category', array(), $args );
+	register_taxonomy( 'service_category', array( 'service' ), $args );
 }
 add_action( 'init', 'ecocltr_register_service_category_taxonomy' );
 
