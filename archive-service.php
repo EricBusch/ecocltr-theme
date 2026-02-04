@@ -13,6 +13,11 @@ $service_categories = ecocltr_get_service_categories();
 
 // Get a random testimonial for the hero.
 $random_testimonial = ecocltr_get_random_testimonial();
+
+// Get archive hero content from ACF options.
+$archive_eyebrow     = ecocltr_get_field( 'service_archive_eyebrow', 'option', __( 'What We Do', 'ecocltr' ) );
+$archive_heading     = ecocltr_get_field( 'service_archive_heading', 'option', __( 'Our Services', 'ecocltr' ) );
+$archive_description = ecocltr_get_field( 'service_archive_description', 'option', __( 'From design to installation and ongoing care, we offer a full range of natural landscaping services to help you create a thriving, sustainable outdoor space.', 'ecocltr' ) );
 ?>
 
 <div id="primary" class="content-area">
@@ -31,13 +36,13 @@ $random_testimonial = ecocltr_get_random_testimonial();
 				<!-- Left Column: Text Content -->
 				<div>
 					<p class="text-sage text-sm uppercase tracking-widest mb-4">
-						<?php esc_html_e( 'What We Do', 'ecocltr' ); ?>
+					<?php echo esc_html( $archive_eyebrow ); ?>
 					</p>
 					<h1 class="text-pretty text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-						<?php esc_html_e( 'Our Services', 'ecocltr' ); ?>
+					<?php echo esc_html( $archive_heading ); ?>
 					</h1>
 					<p class="text-balance text-lg text-sage/90 max-w-xl leading-relaxed mb-8">
-						<?php esc_html_e( 'From design to installation and ongoing care, we offer a full range of natural landscaping services to help you create a thriving, sustainable outdoor space.', 'ecocltr' ); ?>
+					<?php echo esc_html( $archive_description ); ?>
 					</p>
 
 					<div class="flex flex-wrap gap-4">

@@ -10,6 +10,11 @@ get_header();
 
 // Get a random testimonial for the hero.
 $random_testimonial = ecocltr_get_random_testimonial();
+
+// Get archive hero content from ACF options.
+$archive_eyebrow     = ecocltr_get_field( 'project_archive_eyebrow', 'option', __( 'Portfolio', 'ecocltr' ) );
+$archive_heading     = ecocltr_get_field( 'project_archive_heading', 'option', __( 'Our Projects', 'ecocltr' ) );
+$archive_description = ecocltr_get_field( 'project_archive_description', 'option', __( 'Explore our portfolio of natural landscaping projects across southern Ontario. Each project showcases our commitment to sustainable, beautiful outdoor spaces.', 'ecocltr' ) );
 ?>
 
 <div id="primary" class="content-area">
@@ -25,19 +30,19 @@ $random_testimonial = ecocltr_get_random_testimonial();
 
 		<div class="container mx-auto relative z-10">
 			<div class="grid lg:grid-cols-2 gap-12 items-center">
-				<!-- Left Column: Text Content -->
-				<div>
-					<p class="text-sage text-sm uppercase tracking-widest mb-4">
-						<?php esc_html_e( 'Portfolio', 'ecocltr' ); ?>
-					</p>
-					<h1 class="text-pretty text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-						<?php esc_html_e( 'Our Projects', 'ecocltr' ); ?>
-					</h1>
-					<p class="text-balance text-lg text-sage/90 max-w-xl leading-relaxed mb-8">
-						<?php esc_html_e( 'Explore our portfolio of natural landscaping projects across southern Ontario. Each project showcases our commitment to sustainable, beautiful outdoor spaces.', 'ecocltr' ); ?>
-					</p>
+			<!-- Left Column: Text Content -->
+			<div>
+				<p class="text-sage text-sm uppercase tracking-widest mb-4">
+					<?php echo esc_html( $archive_eyebrow ); ?>
+				</p>
+				<h1 class="text-pretty text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+					<?php echo esc_html( $archive_heading ); ?>
+				</h1>
+				<p class="text-balance text-lg text-sage/90 max-w-xl leading-relaxed mb-8">
+					<?php echo esc_html( $archive_description ); ?>
+				</p>
 
-					<div class="flex flex-wrap gap-4">
+				<div class="flex flex-wrap gap-4">
 						<a href="#projects-grid" class="inline-flex items-center gap-2 bg-white text-olive hover:bg-sage hover:text-dark font-semibold px-6 py-3 rounded-lg transition-all duration-300">
 							<?php esc_html_e( 'View Projects', 'ecocltr' ); ?>
 							<?php ecocltr_display_icon( 'chevron-down', 'w-4 h-4' ); ?>

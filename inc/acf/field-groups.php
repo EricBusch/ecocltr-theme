@@ -32,6 +32,28 @@ function ecocltr_register_acf_field_groups() {
 				'position'   => 60,
 			)
 		);
+
+		// Register options page for Services archive settings.
+		acf_add_options_page(
+			array(
+				'page_title'  => __( 'Services Archive Settings', 'ecocltr' ),
+				'menu_title'  => __( 'Frontend Settings', 'ecocltr' ),
+				'parent_slug' => 'edit.php?post_type=service',
+				'menu_slug'   => 'service-archive-settings',
+				'capability'  => 'manage_options',
+			)
+		);
+
+		// Register options page for Projects archive settings.
+		acf_add_options_page(
+			array(
+				'page_title'  => __( 'Projects Archive Settings', 'ecocltr' ),
+				'menu_title'  => __( 'Frontend Settings', 'ecocltr' ),
+				'parent_slug' => 'edit.php?post_type=project',
+				'menu_slug'   => 'project-archive-settings',
+				'capability'  => 'manage_options',
+			)
+		);
 	}
 
 	// Business Information Settings.
@@ -702,6 +724,94 @@ function ecocltr_register_acf_field_groups() {
 						'param'    => 'page_template',
 						'operator' => '==',
 						'value'    => 'page-about.php',
+					),
+				),
+			),
+		)
+	);
+
+	// Services Archive Settings.
+	acf_add_local_field_group(
+		array(
+			'key'      => 'group_service_archive',
+			'title'    => __( 'Services Archive Hero', 'ecocltr' ),
+			'fields'   => array(
+				array(
+					'key'           => 'field_service_archive_eyebrow',
+					'label'         => __( 'Eyebrow Text', 'ecocltr' ),
+					'name'          => 'service_archive_eyebrow',
+					'type'          => 'text',
+					'instructions'  => __( 'Small text above the heading.', 'ecocltr' ),
+					'default_value' => __( 'What We Do', 'ecocltr' ),
+				),
+				array(
+					'key'           => 'field_service_archive_heading',
+					'label'         => __( 'Heading', 'ecocltr' ),
+					'name'          => 'service_archive_heading',
+					'type'          => 'text',
+					'instructions'  => __( 'Main heading for the services archive page.', 'ecocltr' ),
+					'default_value' => __( 'Our Services', 'ecocltr' ),
+				),
+				array(
+					'key'           => 'field_service_archive_description',
+					'label'         => __( 'Description', 'ecocltr' ),
+					'name'          => 'service_archive_description',
+					'type'          => 'textarea',
+					'instructions'  => __( 'Lede text below the heading.', 'ecocltr' ),
+					'rows'          => 3,
+					'default_value' => __( 'From design to installation and ongoing care, we offer a full range of natural landscaping services to help you create a thriving, sustainable outdoor space.', 'ecocltr' ),
+				),
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'options_page',
+						'operator' => '==',
+						'value'    => 'service-archive-settings',
+					),
+				),
+			),
+		)
+	);
+
+	// Projects Archive Settings.
+	acf_add_local_field_group(
+		array(
+			'key'      => 'group_project_archive',
+			'title'    => __( 'Projects Archive Hero', 'ecocltr' ),
+			'fields'   => array(
+				array(
+					'key'           => 'field_project_archive_eyebrow',
+					'label'         => __( 'Eyebrow Text', 'ecocltr' ),
+					'name'          => 'project_archive_eyebrow',
+					'type'          => 'text',
+					'instructions'  => __( 'Small text above the heading.', 'ecocltr' ),
+					'default_value' => __( 'Portfolio', 'ecocltr' ),
+				),
+				array(
+					'key'           => 'field_project_archive_heading',
+					'label'         => __( 'Heading', 'ecocltr' ),
+					'name'          => 'project_archive_heading',
+					'type'          => 'text',
+					'instructions'  => __( 'Main heading for the projects archive page.', 'ecocltr' ),
+					'default_value' => __( 'Our Projects', 'ecocltr' ),
+				),
+				array(
+					'key'           => 'field_project_archive_description',
+					'label'         => __( 'Description', 'ecocltr' ),
+					'name'          => 'project_archive_description',
+					'type'          => 'textarea',
+					'instructions'  => __( 'Lede text below the heading.', 'ecocltr' ),
+					'rows'          => 3,
+					'default_value' => __( 'Explore our portfolio of natural landscaping projects across southern Ontario. Each project showcases our commitment to sustainable, beautiful outdoor spaces.', 'ecocltr' ),
+				),
+			),
+			'location' => array(
+				array(
+					array(
+						'param'    => 'options_page',
+						'operator' => '==',
+						'value'    => 'project-archive-settings',
 					),
 				),
 			),
