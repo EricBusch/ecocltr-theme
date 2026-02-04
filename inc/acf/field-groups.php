@@ -609,25 +609,6 @@ function ecocltr_register_acf_field_groups() {
 			'title'    => __( 'About Page Content', 'ecocltr' ),
 			'fields'   => array(
 				array(
-					'key'           => 'field_about_hero_tagline',
-					'label'         => __( 'Hero Tagline', 'ecocltr' ),
-					'name'          => 'about_hero_tagline',
-					'type'          => 'text',
-					'instructions'  => __( 'Short, friendly tagline for the hero section.', 'ecocltr' ),
-					'default_value' => __( 'Bringing nature back to your landscape, one native plant at a time.',
-						'ecocltr' ),
-				),
-				array(
-					'key'           => 'field_about_hero_image',
-					'label'         => __( 'Hero Background Image', 'ecocltr' ),
-					'name'          => 'about_hero_image',
-					'type'          => 'image',
-					'instructions'  => __( 'Background image for the hero section (optional).', 'ecocltr' ),
-					'return_format' => 'array',
-					'preview_size'  => 'medium',
-					'library'       => 'all',
-				),
-				array(
 					'key'           => 'field_about_owner_photo',
 					'label'         => __( 'Owner/Team Photo', 'ecocltr' ),
 					'name'          => 'about_owner_photo',
