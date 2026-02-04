@@ -204,6 +204,43 @@ function ecocltr_register_acf_field_groups()
         )
     );
 
+    // Service Category Selection.
+    acf_add_local_field_group(
+        array(
+        'key'            => 'group_service_category_selection',
+        'title'          => __('Service Category', 'ecocltr'),
+        'fields'         => array(
+                array(
+                    'key'          => 'field_service_category',
+                    'label'        => __('Service Category', 'ecocltr'),
+                    'name'         => 'service_category',
+                    'type'         => 'taxonomy',
+                    'instructions' => __('Select a Service Category for this Service.', 'ecocltr'),
+                    'required'     => 1,
+                    'taxonomy'     => 'service_category',
+                    'field_type'   => 'radio',
+                    'add_term'     => 0,
+                    'save_terms'   => 1,
+                    'load_terms'   => 1,
+                    'return_format' => 'id',
+                    'allow_null'   => 0,
+                    'multiple'     => 0,
+                ),
+        ),
+        'location'       => array(
+                array(
+                    array(
+                        'param'    => 'post_type',
+                        'operator' => '==',
+                        'value'    => 'service',
+                    ),
+                ),
+        ),
+        'position'       => 'normal',
+        'hide_on_screen' => array( 'categories', 'tags' ),
+        )
+    );
+
     // Service Fields.
     acf_add_local_field_group(
         array(
