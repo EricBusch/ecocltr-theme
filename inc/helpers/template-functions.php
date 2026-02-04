@@ -126,6 +126,23 @@ function ecocltr_get_related_services( $project_id )
         return array();
     }
 
+    // Sort services by menu_order and then title.
+    usort(
+        $related_services,
+        function ( $a, $b ) {
+            // Compare menu_order first.
+            $order_a = (int) $a->menu_order;
+            $order_b = (int) $b->menu_order;
+
+            if ( $order_a !== $order_b ) {
+                return $order_a - $order_b;
+            }
+
+            // If menu_order is the same, sort alphabetically by title.
+            return strcmp( $a->post_title, $b->post_title );
+        }
+    );
+
     return $related_services;
 }
 
@@ -144,6 +161,23 @@ function ecocltr_get_related_services_for_service( $service_id )
     if (! $related_services || ! is_array($related_services) ) {
         return array();
     }
+
+    // Sort services by menu_order and then title.
+    usort(
+        $related_services,
+        function ( $a, $b ) {
+            // Compare menu_order first.
+            $order_a = (int) $a->menu_order;
+            $order_b = (int) $b->menu_order;
+
+            if ( $order_a !== $order_b ) {
+                return $order_a - $order_b;
+            }
+
+            // If menu_order is the same, sort alphabetically by title.
+            return strcmp( $a->post_title, $b->post_title );
+        }
+    );
 
     return $related_services;
 }
