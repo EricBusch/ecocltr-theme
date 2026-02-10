@@ -26,7 +26,7 @@ function ecocltr_register_acf_field_groups() {
 				'page_title' => __( 'Business Information', 'ecocltr' ),
 				'menu_title' => __( 'Business Info', 'ecocltr' ),
 				'menu_slug'  => 'business-information',
-				'capability' => 'manage_options',
+				'capability' => 'edit_pages',
 				'redirect'   => false,
 				'icon_url'   => 'dashicons-store',
 				'position'   => 60,
