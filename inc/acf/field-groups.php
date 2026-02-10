@@ -250,7 +250,7 @@ function ecocltr_register_acf_field_groups() {
 					'type'              => 'wysiwyg',
 					'instructions'      => __( 'Enter the notification message. You can use bold, italic, and links.', 'ecocltr' ),
 					'tabs'              => 'visual',
-					'toolbar'           => 'basic',
+					'toolbar'           => 'notification',
 					'media_upload'      => 0,
 					'delay'             => 0,
 					'conditional_logic' => array(

@@ -7,6 +7,22 @@
  */
 
 /**
+ * Add custom WYSIWYG toolbar for notifications.
+ *
+ * @param array $toolbars Existing toolbars.
+ * @return array Modified toolbars.
+ * @since 1.0.0
+ */
+function ecocltr_notification_wysiwyg_toolbars( $toolbars ) {
+	// Add a custom toolbar for notifications with limited formatting.
+	$toolbars['Notification'] = array();
+	$toolbars['Notification'][1] = array( 'bold', 'italic', 'link', 'unlink', 'removeformat' );
+
+	return $toolbars;
+}
+add_filter( 'acf/fields/wysiwyg/toolbars', 'ecocltr_notification_wysiwyg_toolbars' );
+
+/**
  * Get hardcoded Tailwind classes for notification types.
  *
  * Classes are hardcoded to ensure they're included in the Tailwind build.
