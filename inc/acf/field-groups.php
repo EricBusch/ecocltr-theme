@@ -340,7 +340,7 @@ function ecocltr_register_acf_field_groups() {
 				),
 				array(
 					'key'                  => 'field_project_services',
-					'label'                => __( 'Related Services', 'ecocltr' ),
+					'label'                => __( 'Services Used', 'ecocltr' ),
 					'name'                 => 'project_services',
 					'type'                 => 'relationship',
 					'instructions'         => __( 'Select services used in this project.', 'ecocltr' ),
