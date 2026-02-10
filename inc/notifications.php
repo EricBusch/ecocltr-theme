@@ -21,73 +21,73 @@ function ecocltr_get_notification_classes( $type ) {
 	switch ( $type ) {
 		case 'success-theme':
 			$classes = array(
-				'bg'     => 'bg-sage/20',
+				'bg'     => 'bg-sage',
 				'text'   => 'text-dark',
-				'border' => 'border-sage',
-				'button' => 'bg-sage hover:bg-sage-600 text-dark',
+				'border' => 'border-sage-600',
+				'button' => 'bg-dark hover:bg-olive text-white',
 			);
 			break;
 
 		case 'success-standard':
 			$classes = array(
-				'bg'     => 'bg-green-50',
-				'text'   => 'text-green-900',
-				'border' => 'border-green-200',
-				'button' => 'bg-green-600 hover:bg-green-700 text-white',
+				'bg'     => 'bg-green-700',
+				'text'   => 'text-white',
+				'border' => 'border-green-600',
+				'button' => 'bg-white hover:bg-green-50 text-green-900',
 			);
 			break;
 
 		case 'danger-theme':
 			$classes = array(
-				'bg'     => 'bg-burgundy/10',
-				'text'   => 'text-burgundy-900',
-				'border' => 'border-burgundy',
-				'button' => 'bg-burgundy hover:bg-burgundy-800 text-white',
+				'bg'     => 'bg-burgundy',
+				'text'   => 'text-white',
+				'border' => 'border-burgundy-700',
+				'button' => 'bg-white hover:bg-burgundy-50 text-burgundy-900',
 			);
 			break;
 
 		case 'danger-standard':
 			$classes = array(
-				'bg'     => 'bg-red-50',
-				'text'   => 'text-red-900',
-				'border' => 'border-red-200',
-				'button' => 'bg-red-600 hover:bg-red-700 text-white',
+				'bg'     => 'bg-red-700',
+				'text'   => 'text-white',
+				'border' => 'border-red-600',
+				'button' => 'bg-white hover:bg-red-50 text-red-900',
 			);
 			break;
 
 		case 'info-theme':
 			$classes = array(
-				'bg'     => 'bg-olive/10',
-				'text'   => 'text-olive',
-				'border' => 'border-olive',
-				'button' => 'bg-olive hover:bg-olive/90 text-white',
+				'bg'     => 'bg-olive',
+				'text'   => 'text-white',
+				'border' => 'border-olive/80',
+				'button' => 'bg-white hover:bg-sage-50 text-olive',
 			);
 			break;
 
 		case 'info-standard':
 			$classes = array(
-				'bg'     => 'bg-blue-50',
-				'text'   => 'text-blue-900',
-				'border' => 'border-blue-200',
-				'button' => 'bg-blue-600 hover:bg-blue-700 text-white',
+				'bg'     => 'bg-blue-700',
+				'text'   => 'text-white',
+				'border' => 'border-blue-600',
+				'button' => 'bg-white hover:bg-blue-50 text-blue-900',
 			);
 			break;
 
 		case 'warning':
 			$classes = array(
-				'bg'     => 'bg-yellow-50',
-				'text'   => 'text-yellow-900',
-				'border' => 'border-yellow-200',
-				'button' => 'bg-yellow-600 hover:bg-yellow-700 text-white',
+				'bg'     => 'bg-yellow-600',
+				'text'   => 'text-white',
+				'border' => 'border-yellow-500',
+				'button' => 'bg-white hover:bg-yellow-50 text-yellow-900',
 			);
 			break;
 
 		default:
 			$classes = array(
-				'bg'     => 'bg-blue-50',
-				'text'   => 'text-blue-900',
-				'border' => 'border-blue-200',
-				'button' => 'bg-blue-600 hover:bg-blue-700 text-white',
+				'bg'     => 'bg-blue-700',
+				'text'   => 'text-white',
+				'border' => 'border-blue-600',
+				'button' => 'bg-white hover:bg-blue-50 text-blue-900',
 			);
 			break;
 	}
