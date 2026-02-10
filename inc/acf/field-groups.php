@@ -506,26 +506,6 @@ function ecocltr_register_acf_field_groups() {
 						'ecocltr' ),
 				),
 				array(
-					'key'   => 'field_intro_tab',
-					'label' => __( 'Introduction Section', 'ecocltr' ),
-					'type'  => 'tab',
-				),
-				array(
-					'key'          => 'field_intro_heading',
-					'label'        => __( 'Introduction Heading', 'ecocltr' ),
-					'name'         => 'intro_heading',
-					'type'         => 'text',
-					'instructions' => __( 'Heading for the introduction section.', 'ecocltr' ),
-				),
-				array(
-					'key'          => 'field_intro_text',
-					'label'        => __( 'Introduction Text', 'ecocltr' ),
-					'name'         => 'intro_text',
-					'type'         => 'textarea',
-					'instructions' => __( 'Main text for the introduction section.', 'ecocltr' ),
-					'rows'         => 4,
-				),
-				array(
 					'key'   => 'field_services_tab',
 					'label' => __( 'Featured Services', 'ecocltr' ),
 					'type'  => 'tab',

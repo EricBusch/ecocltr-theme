@@ -11,8 +11,6 @@ get_header();
 // Get ACF fields.
 $hero_heading         = ecocltr_get_field( 'hero_heading' );
 $hero_subheading      = ecocltr_get_field( 'hero_subheading' );
-$intro_heading        = ecocltr_get_field( 'intro_heading' );
-$intro_text           = ecocltr_get_field( 'intro_text' );
 $featured_services    = ecocltr_get_field( 'featured_services' );
 $service_area_heading = ecocltr_get_field( 'service_area_heading' );
 $service_area_text    = ecocltr_get_field( 'service_area_text' );
@@ -54,12 +52,15 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 		<!-- Hero Content -->
 		<div class="relative z-10 container mx-auto text-center px-4">
 			<h1 class="text-pretty text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
-				<?php echo esc_html( $site_name ); ?>
+				<?php echo esc_html( $hero_heading ? $hero_heading : $site_name ); ?>
 			</h1>
 
-			<?php if ( $site_tagline ) : ?>
+			<?php
+			$hero_text = $hero_subheading ? $hero_subheading : $site_tagline;
+			if ( $hero_text ) :
+				?>
 				<p class="text-balance text-lg md:text-xl lg:text-2xl text-sage-200 max-w-4xl mx-auto leading-snug drop-shadow-md">
-					<?php echo esc_html( $site_tagline ); ?>
+					<?php echo esc_html( $hero_text ); ?>
 				</p>
 			<?php endif; ?>
 
@@ -200,26 +201,6 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 		</section>
 	<?php endif; ?>
 
-	<?php if ( $intro_heading || $intro_text ) : ?>
-		<!-- Introduction Section -->
-		<section class="py-16 md:py-24">
-			<div class="container mx-auto">
-				<div class="max-w-3xl mx-auto text-center">
-					<?php if ( $intro_heading ) : ?>
-						<h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">
-							<?php echo esc_html( $intro_heading ); ?>
-						</h2>
-					<?php endif; ?>
-
-					<?php if ( $intro_text ) : ?>
-						<p class="text-lg text-dark/70 leading-relaxed">
-							<?php echo esc_html( $intro_text ); ?>
-						</p>
-					<?php endif; ?>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
 
 	<?php if ( $featured_services && is_array( $featured_services ) ) : ?>
 		<!-- Featured Services Section -->
