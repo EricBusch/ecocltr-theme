@@ -231,6 +231,8 @@ $related_services = ecocltr_get_related_services( $project_id );
 			</div>
 		</section>
 	<?php endif; ?>
+
+	<?php get_template_part( 'template-parts/cta', 'footer' ); ?>
 </div>
 
 <?php

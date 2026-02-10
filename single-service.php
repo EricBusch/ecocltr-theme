@@ -269,6 +269,8 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 			</div>
 		</section>
 	<?php endif; ?>
+
+	<?php get_template_part( 'template-parts/cta', 'footer' ); ?>
 </div>
 
 <?php
