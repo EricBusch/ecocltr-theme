@@ -28,6 +28,11 @@ require_once __DIR__ . '/inc/taxonomies/service-category.php';
 require_once __DIR__ . '/inc/acf/field-groups.php';
 
 /**
+ * Include notification banner functions.
+ */
+require_once __DIR__ . '/inc/notifications.php';
+
+/**
  * Include helper functions.
  */
 require_once __DIR__ . '/inc/helpers/template-functions.php';

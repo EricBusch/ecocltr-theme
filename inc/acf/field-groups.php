@@ -204,6 +204,140 @@ function ecocltr_register_acf_field_groups() {
 					'default_value' => __( 'Get in Touch', 'ecocltr' ),
 				),
 				array(
+					'key'   => 'field_notification_tab',
+					'label' => __( 'Notification Banner', 'ecocltr' ),
+					'type'  => 'tab',
+				),
+				array(
+					'key'           => 'field_notification_enabled',
+					'label'         => __( 'Enable Notification', 'ecocltr' ),
+					'name'          => 'notification_enabled',
+					'type'          => 'true_false',
+					'instructions'  => __( 'Show the notification banner at the top of the website.', 'ecocltr' ),
+					'ui'            => 1,
+					'default_value' => 0,
+				),
+				array(
+					'key'               => 'field_notification_type',
+					'label'             => __( 'Notification Type', 'ecocltr' ),
+					'name'              => 'notification_type',
+					'type'              => 'select',
+					'instructions'      => __( 'Choose the style and color of the notification.', 'ecocltr' ),
+					'choices'           => array(
+						'success-theme'   => __( 'Success (Theme - Sage Green)', 'ecocltr' ),
+						'success-standard' => __( 'Success (Standard - Green)', 'ecocltr' ),
+						'danger-theme'    => __( 'Danger (Theme - Burgundy)', 'ecocltr' ),
+						'danger-standard' => __( 'Danger (Standard - Red)', 'ecocltr' ),
+						'info-theme'      => __( 'Info (Theme - Olive)', 'ecocltr' ),
+						'info-standard'   => __( 'Info (Standard - Blue)', 'ecocltr' ),
+						'warning'         => __( 'Warning (Yellow)', 'ecocltr' ),
+					),
+					'default_value'     => 'info-standard',
+					'conditional_logic' => array(
+						array(
+							array(
+								'field'    => 'field_notification_enabled',
+								'operator' => '==',
+								'value'    => '1',
+							),
+						),
+					),
+				),
+				array(
+					'key'               => 'field_notification_text',
+					'label'             => __( 'Notification Text', 'ecocltr' ),
+					'name'              => 'notification_text',
+					'type'              => 'wysiwyg',
+					'instructions'      => __( 'Enter the notification message. You can use bold, italic, and links.', 'ecocltr' ),
+					'tabs'              => 'visual',
+					'toolbar'           => 'basic',
+					'media_upload'      => 0,
+					'delay'             => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field'    => 'field_notification_enabled',
+								'operator' => '==',
+								'value'    => '1',
+							),
+						),
+					),
+				),
+				array(
+					'key'               => 'field_notification_start_date',
+					'label'             => __( 'Start Date', 'ecocltr' ),
+					'name'              => 'notification_start_date',
+					'type'              => 'date_picker',
+					'instructions'      => __( 'Optional. Leave blank to show immediately.', 'ecocltr' ),
+					'display_format'    => 'F j, Y',
+					'return_format'     => 'Y-m-d',
+					'conditional_logic' => array(
+						array(
+							array(
+								'field'    => 'field_notification_enabled',
+								'operator' => '==',
+								'value'    => '1',
+							),
+						),
+					),
+				),
+				array(
+					'key'               => 'field_notification_end_date',
+					'label'             => __( 'End Date', 'ecocltr' ),
+					'name'              => 'notification_end_date',
+					'type'              => 'date_picker',
+					'instructions'      => __( 'Optional. Leave blank to show indefinitely.', 'ecocltr' ),
+					'display_format'    => 'F j, Y',
+					'return_format'     => 'Y-m-d',
+					'conditional_logic' => array(
+						array(
+							array(
+								'field'    => 'field_notification_enabled',
+								'operator' => '==',
+								'value'    => '1',
+							),
+						),
+					),
+				),
+				array(
+					'key'               => 'field_notification_cta_text',
+					'label'             => __( 'CTA Button Text', 'ecocltr' ),
+					'name'              => 'notification_cta_text',
+					'type'              => 'text',
+					'instructions'      => __( 'Optional. Add a call-to-action button.', 'ecocltr' ),
+					'placeholder'       => __( 'Learn More', 'ecocltr' ),
+					'conditional_logic' => array(
+						array(
+							array(
+								'field'    => 'field_notification_enabled',
+								'operator' => '==',
+								'value'    => '1',
+							),
+						),
+					),
+				),
+				array(
+					'key'               => 'field_notification_cta_url',
+					'label'             => __( 'CTA Button URL', 'ecocltr' ),
+					'name'              => 'notification_cta_url',
+					'type'              => 'url',
+					'instructions'      => __( 'URL for the CTA button.', 'ecocltr' ),
+					'conditional_logic' => array(
+						array(
+							array(
+								'field'    => 'field_notification_enabled',
+								'operator' => '==',
+								'value'    => '1',
+							),
+							array(
+								'field'    => 'field_notification_cta_text',
+								'operator' => '!=',
+								'value'    => '',
+							),
+						),
+					),
+				),
+				array(
 					'key'   => 'field_integrations_tab',
 					'label' => __( 'Integrations', 'ecocltr' ),
 					'type'  => 'tab',

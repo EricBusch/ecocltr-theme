@@ -25,6 +25,8 @@
 <div id="page" class="min-h-screen flex flex-col">
 	<?php do_action( 'ecocltr_header' ); ?>
 
+	<?php ecocltr_display_notification_banner(); ?>
+
 	<?php
 	$business_phone    = ecocltr_get_business_info( 'business_phone' );
 	$business_email    = ecocltr_get_business_info( 'business_email' );
