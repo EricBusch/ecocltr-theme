@@ -9,13 +9,11 @@
 get_header();
 
 // Get ACF fields.
-$hero_heading         = ecocltr_get_field( 'hero_heading' );
-$hero_subheading      = ecocltr_get_field( 'hero_subheading' );
-$featured_services    = ecocltr_get_field( 'featured_services' );
-$service_area_heading = ecocltr_get_field( 'service_area_heading' );
-$service_area_text    = ecocltr_get_field( 'service_area_text' );
-$cta_heading          = ecocltr_get_field( 'cta_heading' );
-$cta_button_text      = ecocltr_get_field( 'cta_button_text', false, __( 'Get in Touch', 'ecocltr' ) );
+$hero_heading    = ecocltr_get_field( 'hero_heading' );
+$hero_subheading = ecocltr_get_field( 'hero_subheading' );
+
+// Get CTA button text from Business Information options.
+$cta_button_text = ecocltr_get_field( 'footer_cta_button_text', 'option', __( 'Get in Touch', 'ecocltr' ) );
 
 // Get recent projects.
 $recent_projects = ecocltr_get_recent_projects( 4 );
@@ -201,45 +199,6 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 		</section>
 	<?php endif; ?>
 
-
-	<?php if ( $featured_services && is_array( $featured_services ) ) : ?>
-		<!-- Featured Services Section -->
-		<section class="py-20 md:py-32 bg-gradient-to-b from-white to-sage/5">
-			<div class="container mx-auto">
-				<!-- Section Header -->
-				<div class="max-w-3xl mx-auto text-center mb-16">
-					<span class="inline-block text-sm uppercase tracking-widest text-burgundy font-semibold mb-4">
-						<?php esc_html_e( 'What We Offer', 'ecocltr' ); ?>
-					</span>
-					<h2 class="text-pretty text-4xl md:text-5xl font-bold text-dark mb-6">
-						<?php esc_html_e( 'Our Services', 'ecocltr' ); ?>
-					</h2>
-					<div class="w-24 h-1 bg-gradient-to-r from-burgundy via-sage to-olive mx-auto rounded-full"></div>
-				</div>
-
-				<!-- Services Grid -->
-				<div class="grid md:grid-cols-2 lg:grid-cols-<?php echo esc_attr( min( count( $featured_services ), 3 ) ); ?> gap-8 lg:gap-10 mb-16">
-					<?php
-					foreach ( $featured_services as $service ) :
-						$GLOBALS['post'] = $service; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-						setup_postdata( $service );
-						get_template_part( 'template-parts/card', 'service' );
-					endforeach;
-					wp_reset_postdata();
-					?>
-				</div>
-
-				<!-- CTA -->
-				<div class="text-center">
-					<a href="<?php echo esc_url( get_post_type_archive_link( 'service' ) ); ?>" class="group inline-flex items-center border-2 border-burgundy text-burgundy hover:bg-burgundy hover:text-white font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:shadow-lg">
-						<span><?php esc_html_e( 'View All Services', 'ecocltr' ); ?></span>
-						<?php ecocltr_display_icon( 'arrow-right', 'w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform' ); ?>
-					</a>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
-
 	<?php if ( $recent_projects ) : ?>
 		<!-- Recent Projects Section -->
 		<section class="py-16 md:py-24 bg-white">
@@ -277,27 +236,6 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 
 	<!-- Testimonial Section -->
 	<?php get_template_part( 'template-parts/section', 'testimonial' ); ?>
-
-	<?php if ( $service_area_heading || $service_area_text ) : ?>
-		<!-- Service Area Section -->
-		<section class="py-16 md:py-24 bg-sage/20">
-			<div class="container mx-auto">
-				<div class="max-w-3xl mx-auto text-center">
-					<?php if ( $service_area_heading ) : ?>
-						<h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">
-							<?php echo esc_html( $service_area_heading ); ?>
-						</h2>
-					<?php endif; ?>
-
-					<?php if ( $service_area_text ) : ?>
-						<p class="text-lg text-dark/70 leading-relaxed">
-							<?php echo esc_html( $service_area_text ); ?>
-						</p>
-					<?php endif; ?>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
 
 	<?php get_template_part( 'template-parts/cta', 'footer' ); ?>
 </div>
