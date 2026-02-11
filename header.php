@@ -96,7 +96,7 @@
 						?>
 						<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="h-14 w-auto">
 					<?php endif; ?>
-					<span class="font-medium text-lg text-dark">
+					<span class="site-title text-2xl text-dark">
 						<?php bloginfo( 'name' ); ?>
 					</span>
 				</a>
@@ -110,8 +110,8 @@
 				<?php endif; ?>
 			</div>
 
-			<div id="primary-navigation" class="hidden md:flex md:bg-transparent md:flex-1 md:justify-center items-center border border-light md:border-none rounded-xl p-4 md:p-0">
-				<nav class="md:flex-1 md:flex md:justify-center" aria-label="<?php esc_attr_e( 'Primary Navigation', 'ecocltr' ); ?>">
+			<div id="primary-navigation" class="hidden md:flex md:bg-transparent md:flex-1 md:justify-end items-center border border-light md:border-none rounded-xl p-4 md:p-0">
+				<nav class="md:flex" aria-label="<?php esc_attr_e( 'Primary Navigation', 'ecocltr' ); ?>">
 					<?php if ( current_user_can( 'administrator' ) && ! has_nav_menu( 'primary' ) ) : ?>
 						<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="text-sm text-zinc-600"><?php esc_html_e( 'Edit Menus', 'ecocltr' ); ?></a>
 					<?php else : ?>

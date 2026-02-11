@@ -321,3 +321,9 @@
   text-decoration: none;
   box-shadow: 0 0 0 4px rgba(127, 27, 32, 0.3);
 }
+
+/* Site title custom font */
+.site-title {
+  font-family: 'Nexa Rust Slab', sans-serif;
+  font-weight: 900;
+}
