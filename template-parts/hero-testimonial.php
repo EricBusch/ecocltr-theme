@@ -30,13 +30,8 @@ if ( ! $testimonial_quote ) {
 ?>
 <div class="hidden lg:block">
 	<div class="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20 relative max-h-[400px] flex flex-col">
-		<!-- Quote Icon -->
-		<div class="absolute top-6 left-6 opacity-20">
-			<?php ecocltr_display_icon( 'quote', 'w-12 h-12 text-white' ); ?>
-		</div>
-
 		<!-- Testimonial Content -->
-		<div class="relative z-10 pt-8 flex-1 flex flex-col">
+		<div class="relative z-10 flex-1 flex flex-col">
 			<blockquote class="text-white/95 text-base leading-relaxed mb-6 italic line-clamp-6 flex-1">
 				"<?php echo esc_html( $testimonial_quote ); ?>"
 			</blockquote>
