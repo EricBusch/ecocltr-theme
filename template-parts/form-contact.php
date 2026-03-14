@@ -13,10 +13,13 @@ if ( ! function_exists( 'wpcf7_contact_form' ) ) {
 		<div class="bg-burgundy/10 border border-burgundy/20 rounded-lg p-6">
 			<p class="text-burgundy">
 				<?php
-				printf(
-					/* translators: %s: Link to plugins page */
-					esc_html__( 'Please install and activate the Contact Form 7 plugin to enable the contact form. Visit %s to install it.', 'ecocltr' ),
-					'<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '" class="underline font-semibold">' . esc_html__( 'Plugins', 'ecocltr' ) . '</a>'
+				echo wp_kses(
+					sprintf(
+						/* translators: %s: Link to plugins page */
+						__( 'Please install and activate the Contact Form 7 plugin to enable the contact form. Visit %s to install it.', 'ecocltr' ),
+						'<a href="' . esc_url( admin_url( 'plugins.php' ) ) . '" class="underline font-semibold">' . esc_html__( 'Plugins', 'ecocltr' ) . '</a>'
+					),
+					array( 'a' => array( 'href' => array(), 'class' => array() ) )
 				);
 				?>
 			</p>
@@ -42,10 +45,13 @@ if ( $cf7_form_id ) {
 	<div class="bg-burgundy/10 border border-burgundy/20 rounded-lg p-6">
 		<p class="text-burgundy">
 			<?php
-			printf(
-				/* translators: %s: Link to ACF options page */
-				esc_html__( 'Please set the Contact Form 7 Form ID in %s.', 'ecocltr' ),
-				'<a href="' . esc_url( admin_url( 'admin.php?page=business-information' ) ) . '" class="underline font-semibold">' . esc_html__( 'Business Info settings', 'ecocltr' ) . '</a>'
+			echo wp_kses(
+				sprintf(
+					/* translators: %s: Link to ACF options page */
+					__( 'Please set the Contact Form 7 Form ID in %s.', 'ecocltr' ),
+					'<a href="' . esc_url( admin_url( 'admin.php?page=business-information' ) ) . '" class="underline font-semibold">' . esc_html__( 'Business Info settings', 'ecocltr' ) . '</a>'
+				),
+				array( 'a' => array( 'href' => array(), 'class' => array() ) )
 			);
 			?>
 		</p>

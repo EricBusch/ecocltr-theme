@@ -170,7 +170,7 @@ $service_terms = get_the_terms( $service_id, 'service_category' );
 															<li>
 																<a
 																	href="<?php echo esc_url( get_permalink( $cat_service->ID ) ); ?>"
-																	class="block text-sm text-dark/70 hover:text-burgundy transition-colors pl-3 border-l-2 <?php echo $is_current ? 'border-burgundy text-burgundy font-medium' : 'border-transparent'; ?>"
+																	class="<?php echo esc_attr( 'block text-sm text-dark/70 hover:text-burgundy transition-colors pl-3 border-l-2 ' . ( $is_current ? 'border-burgundy text-burgundy font-medium' : 'border-transparent' ) ); ?>"
 																>
 																	<?php echo esc_html( get_the_title( $cat_service->ID ) ); ?>
 																</a>

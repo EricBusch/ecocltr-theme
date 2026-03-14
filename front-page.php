@@ -114,9 +114,9 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 						$category_count++;
 						?>
 						<div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4 md:p-6">
-							<div class="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center <?php echo $is_even ? '' : 'lg:grid-flow-dense'; ?>">
+							<div class="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center <?php echo esc_attr( $is_even ? '' : 'lg:grid-flow-dense' ); ?>">
 								<!-- Image -->
-								<a href="<?php echo esc_url( $category_link ); ?>" class="group block <?php echo $is_even ? '' : 'lg:col-start-2'; ?>">
+								<a href="<?php echo esc_url( $category_link ); ?>" class="group block <?php echo esc_attr( $is_even ? '' : 'lg:col-start-2' ); ?>">
 									<div class="relative overflow-hidden rounded-xl shadow-md">
 										<?php if ( $category_image ) : ?>
 											<img
@@ -131,13 +131,13 @@ $hero_video_url = is_numeric( $hero_video_id ) ? wp_get_attachment_url( $hero_vi
 								</a>
 
 								<!-- Content -->
-								<div class="<?php echo $is_even ? '' : 'lg:col-start-1 lg:row-start-1'; ?> <?php echo $is_even ? 'lg:pl-4' : 'lg:pl-4 lg:pr-4'; ?> py-4">
+								<div class="<?php echo esc_attr( trim( ( $is_even ? '' : 'lg:col-start-1 lg:row-start-1' ) . ' ' . ( $is_even ? 'lg:pl-4' : 'lg:pl-4 lg:pr-4' ) . ' py-4' ) ); ?>">
 									<span class="inline-block text-xs uppercase tracking-widest text-olive mb-3">
 										<?php
 										printf(
 											/* translators: %d: number of services */
 											esc_html( _n( '%d service', '%d services', $category->count, 'ecocltr' ) ),
-											esc_html( $category->count )
+											(int) $category->count
 										);
 										?>
 									</span>

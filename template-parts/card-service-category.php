@@ -58,7 +58,7 @@ $service_count = $category_term->count;
 				printf(
 					/* translators: %d: Number of services */
 					esc_html( _n( '%d service', '%d services', $service_count, 'ecocltr' ) ),
-					esc_html( $service_count )
+					(int) $service_count
 				);
 				?>
 			</span>
