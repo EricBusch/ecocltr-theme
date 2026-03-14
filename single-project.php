@@ -62,13 +62,12 @@ $related_services = ecocltr_get_related_services( $project_id );
 						<!-- Main Content -->
 						<div class="lg:col-span-2">
 							<?php if ( has_post_thumbnail() ) : ?>
-								<div class="mb-10 rounded-lg overflow-hidden">
+								<div class="mb-8">
 									<?php
 									the_post_thumbnail(
 										'large',
 										array(
-											'class' => 'w-full h-auto',
-											'alt'   => esc_attr( get_the_title() ),
+											'class' => 'w-full h-auto rounded-lg',
 										)
 									);
 									?>
@@ -81,25 +80,7 @@ $related_services = ecocltr_get_related_services( $project_id );
 
 							<!-- Project Gallery -->
 							<?php
-							// Add featured image to gallery if it exists.
-							$gallery_images = array();
-							if ( has_post_thumbnail() ) {
-								$featured_image_id = get_post_thumbnail_id();
-								$featured_image    = array(
-									'ID'    => $featured_image_id,
-									'url'   => wp_get_attachment_image_url( $featured_image_id, 'full' ),
-									'sizes' => array(
-										'medium_large' => wp_get_attachment_image_url( $featured_image_id, 'medium_large' ),
-									),
-									'alt'   => get_post_meta( $featured_image_id, '_wp_attachment_image_alt', true ),
-								);
-								$gallery_images[] = $featured_image;
-							}
-
-							// Add gallery images.
-							if ( $project_gallery && is_array( $project_gallery ) ) {
-								$gallery_images = array_merge( $gallery_images, $project_gallery );
-							}
+							$gallery_images = ( $project_gallery && is_array( $project_gallery ) ) ? $project_gallery : array();
 
 							if ( ! empty( $gallery_images ) ) :
 								?>

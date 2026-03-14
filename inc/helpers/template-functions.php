@@ -107,7 +107,12 @@ function ecocltr_get_related_projects( $service_id )
         return array();
     }
 
-    return $related_projects;
+    return array_filter(
+        $related_projects,
+        function ( $project ) {
+            return 'publish' === get_post_status( $project );
+        }
+    );
 }
 
 /**
