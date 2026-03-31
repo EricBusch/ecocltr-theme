@@ -88,13 +88,13 @@
 	<header class="container mx-auto py-6">
 		<div class="md:flex md:justify-between md:items-center">
 			<div class="flex justify-between items-center">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 min-w-0">
 					<?php
 					$custom_logo_id = get_theme_mod( 'custom_logo' );
 					if ( $custom_logo_id ) :
 						$logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
 						?>
-						<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="h-14 w-auto">
+						<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="h-14 w-auto flex-shrink-0 hidden xs:block">
 					<?php endif; ?>
 					<span class="site-title text-2xl text-dark">
 						<?php bloginfo( 'name' ); ?>
@@ -102,7 +102,7 @@
 				</a>
 
 				<?php if ( has_nav_menu( 'primary' ) ) : ?>
-					<div class="md:hidden">
+					<div class="md:hidden flex-shrink-0">
 						<button type="button" aria-label="<?php esc_attr_e( 'Toggle navigation', 'ecocltr' ); ?>" aria-expanded="false" aria-controls="primary-navigation" id="primary-menu-toggle">
 							<?php ecocltr_display_icon( 'menu', 'size-6' ); ?>
 						</button>
