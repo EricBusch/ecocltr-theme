@@ -166,6 +166,8 @@
 /* Turnstile widget container */
 .wpcf7 .wpcf7-form .cf-turnstile {
 	margin: 0;
+	max-width: 100%;
+	overflow-x: auto;
 }
 
 /* Screen reader text - element is a sibling of form, not inside it */

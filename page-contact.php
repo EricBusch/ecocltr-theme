@@ -19,14 +19,14 @@ $map_image     = ecocltr_get_field('contact_map_image');
 ?>
 
 <div id="primary" class="content-area">
-    <section class="relative bg-light min-h-[600px]">
+    <section class="relative bg-light min-h-[600px] overflow-x-clip">
         <!-- Sage background extending from left edge to middle of page -->
         <div class="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-sage/20"></div>
 
         <div class="container mx-auto px-4 relative z-10">
-            <div class="grid lg:grid-cols-2 items-start gap-4 lg:gap-20 py-10 md:py-14 lg:py-20">
+            <div class="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 items-start gap-4 lg:gap-20 py-10 md:py-14 lg:py-20">
                 <!-- Contact Information -->
-                <div class="space-y-8 lg:space-y-10 px-4 md:px-8 lg:pr-12">
+                <div class="min-w-0 space-y-8 lg:space-y-10 px-4 md:px-8 lg:pr-12">
                     <div>
                         <h1 class="text-4xl md:text-5xl font-bold text-dark mb-6 text-pretty">
                             <?php the_title(); ?>
@@ -104,7 +104,7 @@ $map_image     = ecocltr_get_field('contact_map_image');
                 </div>
 
                 <!-- Contact Form -->
-                <div class="lg:sticky lg:top-8 px-4 md:px-8 lg:pl-12">
+                <div class="min-w-0 lg:sticky lg:top-8 px-4 md:px-8 lg:pl-12">
                     <?php get_template_part('template-parts/form', 'contact'); ?>
                 </div>
             </div>
