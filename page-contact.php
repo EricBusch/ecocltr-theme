@@ -84,28 +84,11 @@ $map_image     = ecocltr_get_field('contact_map_image');
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
-
-                    <?php
-                    // Get a random testimonial.
-                    $testimonial = ecocltr_get_random_testimonial();
-                    if ($testimonial ) :
-                        $quote       = get_field('testimonial_quote', $testimonial->ID);
-                        $client_name = get_field('testimonial_client_name', $testimonial->ID);
-                        ?>
-                        <div class="hidden lg:block bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/40">
-                            <blockquote class="text-dark/70 text-lg leading-relaxed italic">
-                                <p class="mb-4">"<?php echo esc_html($quote); ?>"</p>
-                                <footer class="font-semibold text-dark not-italic">
-                                    <cite><?php echo esc_html($client_name); ?></cite>
-                                </footer>
-                            </blockquote>
-                        </div>
-                    <?php endif; ?>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="min-w-0 lg:sticky lg:top-8 px-4 md:px-8 lg:pl-12">
-                    <?php get_template_part('template-parts/form', 'contact'); ?>
+                <!-- Testimonial -->
+                <div class="min-w-0 px-4 md:px-8 lg:pl-12">
+                    <?php ecocltr_display_testimonial(); ?>
                 </div>
             </div>
         </div>
